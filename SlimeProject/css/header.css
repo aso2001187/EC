@@ -10,3 +10,18 @@ header {
     align-items: center;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+.header_boss{
+    display: flex;
+    position: absolute;
+}
+
+.header_left{
+    background-color:red;
+    height: 70px;
+    width:80px;
+}
+
+.header_right{
+    background: aqua;
+    display:flex;
+}

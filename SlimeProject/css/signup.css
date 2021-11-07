@@ -1,0 +1,13 @@
+.main_area{
+    background-color: #ffffff;
+    height: 93%;
+    width: 90%;
+    border-radius:5px;
+    padding:4% 10%;
+}
+a{
+    text-decoration:underline;
+}
+a:hover{
+    color: #cbcbcb;
+}

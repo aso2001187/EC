@@ -15,7 +15,6 @@ main {
 
 main > div {
     margin: auto;
-    max-width: 600px;
 }
 
 main h2 span {
@@ -133,7 +132,7 @@ main small {
 }
 
 #sidebar-menu li a:hover {
-    color: #BF7497;
+    color: #cbcbcb;
 }
 
 #sidebar-menu li:not(.small) + .small {

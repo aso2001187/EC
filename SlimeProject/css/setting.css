@@ -1,11 +1,17 @@
 *{
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
     background-color: #f5f5f5;
-    min-width: 500px;
+    min-width: 700px;
     min-height: 500px;
+}
+main{
+    font-family:"sans-serif","Yu Gothic";
+    color: #464646;
+}
+::placeholder{
+    color: rgba(0, 0, 0, 0.2);
 }

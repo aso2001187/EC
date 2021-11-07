@@ -45,6 +45,9 @@ header {
     line-height: 18px;
     padding-top:14px;
 }
+.header_items:hover{
+    color: #cbcbcb;
+}
 .header_items2{
     width:60px;
     height: 70px;
@@ -54,6 +57,9 @@ header {
     padding-top:11px;
     margin-left: 15px;
     margin-right: 20px;
+}
+.header_items2:hover{
+    color: #cbcbcb;
 }
 .header_items3{
     white-space:nowrap;
@@ -91,6 +97,18 @@ header {
     border: none;
     background: none;
     color: #808080;
+    outline : none;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 3px 0 0 2px;
+}
+.keyword_submit:hover{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size:20px;
+    border: none;
+    background: none;
+    color: #cbcbcb;
     outline : none;
     display: inline-block;
     vertical-align: middle;

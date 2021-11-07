@@ -21,28 +21,31 @@
     <a href="0"><img src="0#"></a>
   </div>
   <!--ヘッダーの右寄せ部分-->
-  <div class="header_right">
-    <div>
-      <span>
-      <a href="#0">
-        <ion-icon name="person-outline"></ion-icon>
-      </a>
-      </span>
-    </div>
-    <div>
-      <span>
-      <a href="#0">
-      <ion-icon name="cart-outline"></ion-icon>
-      </a>
-      </span>
-    </div>
-    <div>
-      <span>
-      <ion-icon name="search-outline"></ion-icon>
-      <input type="text" id="search">
-      </span>
-    </div>
-  </div>
+  <ul class="header_right">
+    <!--検索ボックス-->
+    <li class="header_right_item">
+      <form method="post" action="#???" class="keyword"> <!--キーワード検索用form-->
+        <div class="header_items3">
+            <input type="text" id="search" placeholder="キーワード検索" class="keyword_box">
+            <input type="submit" value="&#xf002" class="keyword_submit">
+        </div>
+      </form>
+    </li>
+    <!--ログインボタン-->
+    <li class="header_right_item">
+      <div class="header_items">
+      <a href="#???"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
+        <span>Login</span></a>
+      </div>
+    </li>
+    <!--カートボタン-->
+    <li class="header_right_item">
+      <div class="header_items2">
+        <a href="#???"><ion-icon name="cart-outline" class="header_icon2"></ion-icon>
+          <span>Cart</span></a>
+      </div>
+    </li>
+  </ul>
   </div>
 </header>
 <!--上部ヘッダー終わり-->
@@ -71,9 +74,12 @@
 <!--ここからメインエリア-->
 <main>
 
+
 </main>
 
 <!--使ってるアイコンのスクリプト-->
+<script src="../js/main.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

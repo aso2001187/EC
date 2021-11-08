@@ -113,4 +113,5 @@ header {
     display: inline-block;
     vertical-align: middle;
     padding: 3px 0 0 2px;
+    transition:0.5s;
 }

@@ -11,6 +11,20 @@ a{
 a:hover{
     color: #cbcbcb;
 }
-li{
- margin:2% 0 0 7%;
+.main_area li{
+ margin:10% 0 0 6%;
+}
+.main_area p{
+    background: aliceblue;
+    line-height: 0;
+}
+#email,#password{
+    width:70%;
+    max-width: 600px;
+    height: 40px;
+    border:0;
+    border-bottom: 1px solid black;
+}
+#email,#password:focus{
+    border-bottom:1px solid black;
 }

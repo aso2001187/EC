@@ -73,6 +73,12 @@
 
 <!--ここからメインエリア-->
 <main>
+<?php
+$pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+    'LAA1291072',
+    'asot6');
+?>
     <div class="main_area">
         <h1>ログイン</h1>
         <form method="post" action="##???" class="login_cls"> <!--ログイン用form-->

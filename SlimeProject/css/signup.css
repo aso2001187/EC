@@ -1,13 +1,58 @@
 .main_area{
+    margin:20px auto;
     background-color: #ffffff;
-    height: 93%;
+    height: 650px;
     width: 90%;
     border-radius:5px;
     padding:4% 10%;
+}
+h1{
+    margin-top: -20px;
+}
+.main_area li{
+    margin:-20px -20px 0 30px;
+}
+.main_area ul li:nth-child(odd){
+    margin-top:28px;
 }
 a{
     text-decoration:underline;
 }
 a:hover{
     color: #cbcbcb;
+}
+
+#email,#password,#email_cfm,#password_cfm{
+    width:70%;
+    max-width: 600px;
+    height: 40px;
+    border:0;
+    border-bottom: 1px solid black;
+}
+#email:focus,#password:focus,#email_cfm:focus,#password_cfm:focus{
+    border-bottom:1px solid #ffb5b5;
+    transition:0.5s;
+}
+.under{
+    /*background-color: aquamarine;*/
+    width: 90%;
+    padding-top:8%;
+    padding-bottom: 30px;
+}
+.sign_up{
+    margin-left:20px;
+}
+.login_btn{
+    margin-left:35%;
+    width: 130px;
+    height:40px;
+    border:none;
+    border-radius:5px;
+    color:#464646;
+    background-color: #dedede;
+    white-space: nowrap;
+}
+.login_btn:hover{
+    background-color: #efefef;
+    transition:0.5s;
 }

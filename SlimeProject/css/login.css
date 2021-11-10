@@ -1,7 +1,9 @@
 .main_area{
+    margin:20px auto;
     background-color: #ffffff;
     height: 93%;
     width: 90%;
+    min-height:500px;
     border-radius:5px;
     padding:4% 10%;
 }
@@ -11,6 +13,43 @@ a{
 a:hover{
     color: #cbcbcb;
 }
-li{
- margin:2% 0 0 7%;
+.main_area li{
+ margin:10% 0 0 6%;
+}
+.main_area p{
+    background: aliceblue;
+    line-height: 0;
+}
+#email,#password{
+    width:70%;
+    max-width: 600px;
+    height: 40px;
+    border:0;
+    border-bottom: 1px solid black;
+}
+#email:focus,#password:focus{
+    border-bottom:1px solid #ffb5b5;
+    transition:0.5s;
+}
+.under{
+    /*background-color: aquamarine;*/
+    width: 90%;
+    padding-top:8%;
+}
+.sign_up{
+    margin-left:20px;
+}
+.login_btn{
+    margin-left:35%;
+    width: 130px;
+    height:40px;
+    border:none;
+    border-radius:5px;
+    color:#464646;
+    background-color: #dedede;
+    white-space: nowrap;
+}
+.login_btn:hover{
+    background-color: #efefef;
+    transition:0.5s;
 }

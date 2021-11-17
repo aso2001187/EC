@@ -73,6 +73,7 @@
 
 <!--ここからメインエリア-->
 <main>
+    <!--とりあえずdiv idでそれぞれ囲っているよ-->
     <!--商品画像 cssで回り込み処理-->
     <div id="itemimg">
         <!--画像アップロード前-->
@@ -82,6 +83,27 @@
     <div id="itemedtail">
         <p>商品詳細</p>
     </div>
+    <!--商品名と値段をDBから持ってこれると最高-->
+    <div id="itemname">
+        <h2>商品名</h2>
+    </div>
+    <div id="itemprice">
+        <h2>￥XXXX-</h2>
+    </div>
+    <div id="itemtags">
+        <ul class="itemdetailtags">
+            <li>#商品タグ1</li>
+            <li>#商品タグ2</li>
+        </ul>
+    </div>
+    <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
+   <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
+    <button type="submit" value="カートへ"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
+    <!--関連商品-->
+    <!--タグが最も近い商品を検索して表示-->
+    <!--SQLで検索した商品の表示-->
+    <button type="submit"><img src="../pic/" alt="商品" /></button>
+    <button type="submit"><img src="../pic/" alt="商品" /></button>
 </main>
 
 <!--使ってるアイコンのスクリプト-->

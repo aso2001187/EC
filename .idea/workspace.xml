@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="登録画面終わり" />
+    <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="登録画面終わり">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlimeProject/html/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/html/cart.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +26,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
@@ -37,6 +44,7 @@
       <workItem from="1636510658814" duration="4026000" />
       <workItem from="1636678032433" duration="15000" />
       <workItem from="1636681995554" duration="1006000" />
+      <workItem from="1637118271845" duration="1487000" />
     </task>
     <task id="LOCAL-00001" summary="test kai">
       <created>1636507709354</created>

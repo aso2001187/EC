@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="6b36c847-c643-4839-9844-d468cdd5de57" name="デフォルト変更リスト" comment="色々">
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlimeProject/css/toppage.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/toppage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlimeProject/html/toppage.html" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/html/toppage.html" afterDir="false" />
+=======
+    <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="検索結果ページの作成及び完成">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +19,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,13 +61,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< Updated upstream
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+=======
+    <property name="last_opened_file_path" value="$USER_HOME$/PhpstormProjects/php2" />
+>>>>>>> Stashed changes
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
@@ -65,9 +82,42 @@
       <created>1636684964710</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< Updated upstream
       <updated>1636684964710</updated>
       <workItem from="1636684966605" duration="786000" />
     </task>
+=======
+      <updated>1636507631860</updated>
+      <workItem from="1636507633319" duration="2988000" />
+      <workItem from="1636510658814" duration="4026000" />
+      <workItem from="1636678032433" duration="15000" />
+      <workItem from="1636681995554" duration="1006000" />
+      <workItem from="1637116701398" duration="4098000" />
+      <workItem from="1637204281297" duration="456000" />
+    </task>
+    <task id="LOCAL-00001" summary="test kai">
+      <created>1636507709354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636507709354</updated>
+    </task>
+    <task id="LOCAL-00002" summary="登録画面終わり">
+      <created>1636510689020</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636510689020</updated>
+    </task>
+    <task id="LOCAL-00003" summary="検索結果ページの作成及び完成">
+      <created>1637120811568</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1637120811568</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,7 +135,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< Updated upstream
     <MESSAGE value="色々" />
     <option name="LAST_COMMIT_MESSAGE" value="色々" />
+=======
+    <MESSAGE value="test kai" />
+    <MESSAGE value="登録画面終わり" />
+    <MESSAGE value="検索結果ページの作成及び完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="検索結果ページの作成及び完成" />
+>>>>>>> Stashed changes
   </component>
 </project>

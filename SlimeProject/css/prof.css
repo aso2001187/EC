@@ -1,3 +1,6 @@
+body{
+    min-height: 700px;
+}
 .main_area{
     margin:20px auto;
     background-color: #ffffff;
@@ -9,4 +12,36 @@
 }
 .main_area p{
     margin:0;
+}
+.main_area button{
+    margin-left:35%;
+    width: 130px;
+    height:40px;
+    border:none;
+    border-radius:5px;
+    color:#464646;
+    background-color: #dedede;
+    white-space: nowrap;
+}
+.main_area button:hover{
+    background-color: #efefef;
+    transition:0.5s;
+}
+.main_area li {
+    margin: 0 0 0 3%;
+    margin-bottom: 19px;
+}
+.main_area input{
+    width:70%;
+    max-width: 600px;
+    height: 35px;
+    border:0;
+    border-bottom: 1px solid black;
+}
+.main_area input:focus{
+    border-bottom:1px solid #ffb5b5;
+    transition:0.5s;
+}
+.main_area h1{
+    margin-bottom:10px;
 }

@@ -1,1 +1,22 @@
-/*toppage*/
+.topitemimg{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item1{
+    margin: 1px;
+    flex-grow: 1;
+}
+.item2{
+    margin: 1px;
+    flex-grow: 1;
+}
+.item3{
+    margin: 1px;
+    flex-grow: 1;
+}
+.item3{
+    margin: 1px;
+    flex-grow: 1;
+}

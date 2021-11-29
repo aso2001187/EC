@@ -1,4 +1,4 @@
-itemsum{
+#cart{
     margin:20px auto;
     background-color: #ffffff;
     height: 93%;
@@ -8,7 +8,28 @@ itemsum{
     padding:4% 10%;
 }
 
-cart_btn{
+#goods{
+    background-color: #c1e4e9;
+}
+#itemsum{
+    font-size: 25px;
+    text-align: right;
+}
+
+#itemdelete{
+    text-align: right;
+
+}
+#itemprice{
+    text-align: right;
+
+}
+
+#total{
+    text-align: right;
+}
+
+.cart_btn{
     margin-left:35%;
     width: 130px;
     height:40px;
@@ -17,4 +38,9 @@ cart_btn{
     color:#464646;
     background-color: #dedede;
     white-space: nowrap;
+    background-size: 100px;
+}
+.cart_btn:hover{
+    background-color: #efefef;
+    transition:0.5s;
 }

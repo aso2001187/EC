@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/###pagename.css">
+    <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -73,21 +73,25 @@
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <div id="itemsum">
-        <p>値段合計</p>
-    </div>
-    <div id="itemimg">
-        <!--画像アップロード前-->
-        <img src="../pic/#000.png">
-    </div>
-    <div id="itemdelete">
-        <button type="submit">削除</button>
-    </div>
-    <div id="itemprice">
-        <p>値段</p>
-    </div>
-    <div id="total">
-        <input type="submit" value="会計へ進む" class="cart_btn">
+    <div id="cart">
+        <div id="itemsum">
+            <p>値段合計</p>
+        </div>
+        <div id="goods">
+            <div id="itemimg">
+                <!--画像アップロード前-->
+                <img src="../pic/#000.png">
+            </div>
+            <div id="itemdelete">
+                <button type="submit">削除</button>
+            </div>
+            <div id="itemprice">
+                <p>値段</p>
+            </div>
+        </div>
+        <div id="total">
+            <button class="cart_btn" onclick="location.href='buy-1.html'">会計へ進む</button>
+        </div>
     </div>
 </main>
 

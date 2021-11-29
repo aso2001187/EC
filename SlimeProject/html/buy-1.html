@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/prof.css">
+    <link rel="stylesheet" href="../css/buy-1.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -74,7 +74,7 @@
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
     <div class="main_area">
-            <h1>お客様情報</h1>
+            <h2>お届け先</h2>
             <!--
                 説明
                 各inputのvalue(規定値)にDB(会員TBL)から持ってきた値
@@ -94,7 +94,7 @@
                     <input type="text" value="DB:'C_address1'" maxlength="80" class="box" required>
                 </li>
                 <li>
-                    <p>住所２(無い場合は「なし」)</p>
+                    <p>住所２</p>
                     <input type="text" value="DB:'C_address2'" maxlength="20" class="box" required>
                 </li>
                 <li>
@@ -103,10 +103,10 @@
                 </li>
                 <li>
                     <p>メールアドレス</p>
-                    <input type="email" value="'C_email'" maxlength="80" class="box" required>
+                    <input type="email" value="DB:'C_email'" maxlength="80" class="box" required>
                 </li>
             </ul>
-        <button
+        <button class="cart_btn" onclick="location.href='buy-2.html'">入力情報確認</button>
     </div>
 </main>
 

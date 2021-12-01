@@ -1,22 +1,28 @@
-.topitemimg{
+topitemimg{
     background-color: aqua;
     display: flex;
     justify-content: space-between;
 }
 
 .item1{
-    margin: 1px;
+    margin: 23px;
+    padding:80px;
+    background: blue;
     flex-grow: 1;
+    height: 200px;
+
 }
 .item2{
-    margin: 1px;
+    margin: 23px;
+    padding:80px;
+    background: blue;
     flex-grow: 1;
+    height: 200px;
 }
 .item3{
-    margin: 1px;
+    margin: 23px;
+    padding:80px;
+    background: blue;
     flex-grow: 1;
-}
-.item3{
-    margin: 1px;
-    flex-grow: 1;
+    height: 200px;
 }

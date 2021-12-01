@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/###pagename.css">
+    <link rel="stylesheet" href="../css/001.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -18,7 +18,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="0">logo<img src="0#"></a>
+            <a href="0"><img src="../pic/logo.png"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -73,16 +73,31 @@
 
 <!--ここからメインエリア-->
 <main>
+    <div class="in">
     <!--とりあえずdiv idでそれぞれ囲っているよ-->
     <!--商品画像 cssで回り込み処理-->
-    <div id="itemimg">
+    <div class="itemimg">
         <!--画像アップロード前-->
-        <img src="../pic/#001.png">
+        <img class="png" src="../pic/001.png">
+        <!--商品詳細 改行はbrで-->
+        <div id="itemedtail">
+            <span>
+                ここに商品説明を記述します。<br>
+                改行はbrタグを使用して改行してください<br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br><br><br>
+                商品説明下ギリはここらへん
+            </span>
+        </div>
     </div>
-    <!--商品詳細-->
-    <div id="itemedtail">
-        <p>商品詳細</p>
-    </div>
+    <div class="mains">
+    <div class="main_left">
     <!--商品名と値段をDBから持ってこれると最高-->
     <div id="itemname">
         <h2>商品名</h2>
@@ -92,18 +107,24 @@
     </div>
     <div id="itemtags">
         <ul class="itemdetailtags">
-            <li>#商品タグ1</li>
-            <li>#商品タグ2</li>
+            <li><a>#商品タグ1</a></li>
+            <li><a>#商品タグ2</a></li>
         </ul>
     </div>
     <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
     <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
     <button type="submit" value="カートへ"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
-    <!--関連商品-->
+    </div>
+    <div class="main_right">
+        <!--関連商品-->
     <!--タグが最も近い商品を検索して表示-->
     <!--SQLで検索した商品の表示-->
+        <p>関連商品</p>
     <button type="submit"><img src="../pic/" alt="商品" /></button>
     <button type="submit"><img src="../pic/" alt="商品" /></button>
+    </div>
+    </div>
+    </div>
 </main>
 
 <!--使ってるアイコンのスクリプト-->

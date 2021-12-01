@@ -75,19 +75,31 @@
 <main>
     <div id="main">
         <div id="client">
-            <h2>お客様情報</h2>
+            <h1>お客様情報</h1>
+            <ul>
+                <li>お名前</li>
+                <li>郵便番号</li>
+                <li>住所1</li>
+                <li>住所2</li>
+                <li>電話番号</li>
+            </ul>
+            <!--前のページからお客様情報を持ってくる-->
         </div>
+        <br>
         <div id="total">
-            <h2>会計情報</h2>
+            <h1>会計情報</h1>
         </div>
-        <p class="sum">
-            カート内小計
-            ¥x,xxx<br>
-            送料
-            ¥xxx<br>
-            合計
-            ¥xx,xxxx
-        </p>
+        <table width="50%">
+            <tr>
+                <td>カート内小計</td><td>¥x,xxx</td>
+            </tr>
+            <tr class="num">
+                <td>送料</td><td>¥xxx</td>
+            </tr>
+            <tr>
+                <td>合計</td><td>¥xx,xxx</td>
+            </tr>
+        </table>
         <div id="orde">
             <button class="orde_btn" onclick="location.href=''">注文確定</button>
         </div>

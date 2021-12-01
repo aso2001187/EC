@@ -7,12 +7,20 @@
     border-radius:5px;
     padding:4% 10%;
 }
-p.sum{
-    font-weight: 600;
-}
 
 #orde{
     text-align: right;
+}
+
+ul{
+    font-size: 20px;
+}
+table{
+    font-size: 20px;
+}
+
+.num td{
+    border-bottom: 2px solid #000;
 }
 
 .orde_btn{
@@ -26,7 +34,7 @@ p.sum{
     white-space: nowrap;
     background-size: 100px;
 }
-.orde_btn:hover{
+.orde_btn:hover {
     background-color: #efefef;
-    transition:0.5s;
+    transition: 0.5s;
 }

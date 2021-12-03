@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/###pagename.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -18,7 +18,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="0">logo<img src="0#"></a>
+            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -29,12 +29,12 @@
                         <input type="text" id="search" placeholder="キーワード検索" class="keyword_box">
                         <input type="submit" value="&#xf002" class="keyword_submit">
                     </div>
-                </form><!--キーワード検索フォームここまで-->
+                </form> <!--キーワード検索用form ここまで-->
             </li>
             <!--ログインボタン-->
             <li class="header_right_item">
                 <div class="header_items">
-                    <a href="#???"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
+                    <a href="login.html"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
                         <span>Login</span></a>
                 </div>
             </li>
@@ -61,7 +61,7 @@
     <div id="sidebar-menu" tabindex="0">
         <ul>
             <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li>
+            <li><a href="#0">##TAG1</a></li> <!---->
             <li><a href="#0">##TAG2</a></li>
             <li><a href="#0">##TAG3</a></li>
             <li><a href="#0">##TAG4...</a></li>
@@ -71,33 +71,25 @@
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア-->
+<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
     <?
-    $pdo = new PDO('mysql152.phy.lolipop.lan ;
-dbname=LAA1291072-team;charset=utf8',
-        'LAA1291072',
-        'asot6');
+     $C_id = $_POST['C_id'];
+    $C_name = $_POST['C_name'];
+    $C_postcode = $_POST['C_postcode'];
+    $_address1 = $_POST['C_address1'];
+    $C_address2 = $_POST['C_address2'];
+    $C_phone = $_POST['C_phone'];
+    $C_email = $_POST['C_email'];
+    $sql = $pdo->prepare('insert into costomer( C_name,C_postcode,C_adress1,C_adress2,C_phone,C_email) values(?, ?,?,?,?,?)');
+    $sql->bindValue(1,C_name,PDO::PARAM_STR);
+    $sql->bindValue(2,C_postcode,PDO::PARAM_STR);
+    $sql->bindValue(3,C_adress1,PDO::PARAM_STR);
+    $sql->bindValue(4,C_adress2,PDO::PARAM_STR);
+    $sql->bindValue(5,C_phone,PDO::PARAM_STR);
+    $sql->bindValue(6,C_email,PDO::PARAM_STR);
+    $sql->execute();
     ?>
-    <div class="main_area">
-        <h1>会員登録<span></span></h1>
-        <form method="post" action="signup-out.php" class="login_cls"> <!--ログイン用form-->
-            <ul>
-                <li><p>メールアドレス</p></li>
-                <li><input type="email" id="email" placeholder="your@mail.address"></li>
-                <li><p>メールアドレス(確認)</p></li>
-                <li><input type="email" id="email_cfm" placeholder="your@mail.address"></li>
-                <li><p>パスワード</p></li>
-                <li><input type="password" id="password" placeholder="your password"></li>
-                <li><p>パスワード(確認)</p></li>
-                <li><input type="password" id="password_cfm" placeholder="your password"></li>
-            </ul>
-            <div class="under">
-                <a href="login.html" class="sign_up">ログインページへ戻る</a>
-                <input type="submit" value="登録" class="login_btn">
-            </div>
-        </form>                                                 <!--ログインフォームここまで-->
-    </div>
 </main>
 
 <!--使ってるアイコンのスクリプト-->

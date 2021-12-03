@@ -1,0 +1,48 @@
+.tags{
+    padding: 0;
+    list-style: none;
+}
+.tags ul{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.tags li a{
+    padding: 10px 5px;
+    display: block;
+    text-transform: uppercase;
+    transition: color .1s;
+}
+.tags li a:hover{
+    color: #cbcbcb;
+}
+
+.itemimg{
+    float: right;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item1{
+    margin: 23px;
+    padding:80px;
+    background: blue;
+    flex-grow: 1;
+    height: 200px;
+
+}
+.item2{
+    margin: 23px;
+    padding:80px;
+    background: blue;
+    flex-grow: 1;
+    height: 200px;
+}
+.item3{
+    margin: 23px;
+    padding:80px;
+    background: blue;
+    flex-grow: 1;
+    height: 200px;
+}

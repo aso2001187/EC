@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/buy-2.css">
+    <link rel="stylesheet" href="../css/prof.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -18,7 +18,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="0">logo<img src="0#"></a>
+            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -61,7 +61,7 @@
     <div id="sidebar-menu" tabindex="0">
         <ul>
             <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li>
+            <li><a href="#0">##TAG1</a></li> <!---->
             <li><a href="#0">##TAG2</a></li>
             <li><a href="#0">##TAG3</a></li>
             <li><a href="#0">##TAG4...</a></li>
@@ -71,41 +71,62 @@
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア-->
+<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <div id="main">
-        <div id="client">
-            <h1>お客様情報</h1>
+    <?php
+    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+        'LAA1291072',
+        'asot6');
+
+    $sql = $pdo->query('SELECT * FROM costomer');
+
+    $C_name = $_POST['C_name'];
+    $C_postcode = $_POST['C_postcode'];
+    $C_address1 = $_POST['C_address1'];
+    $C_address2 = $_POST['C_address2'];
+    $C_phone = $_POST['C_phone'];
+    $C_email = $_POST['C_email'];
+
+    $pdo = null;
+    ?>
+    <div class="main_area">
+        <form>
+            <h1>お客様情報 <button type="submit">更新</button></h1>
+            <!--
+                説明
+                各inputのvalue(規定値)にDB(会員TBL)から持ってきた値
+                をあらかじめphpで入力する。
+                formタグを使用し、画面上部の更新ボタンで、valueの
+                中の値をDBに登録(上書き)する。
+            -->
             <ul>
-                <li>お名前</li>
-                <li>郵便番号</li>
-                <li>住所1</li>
-                <li>住所2</li>
-                <li>電話番号</li>
+                <li>
+                    <p>お名前</p>
+                    <input type="text" value=<?= $C_name ?> maxlength="50" class="box" required>
+                </li>
+                <li>
+                    <p>郵便番号</p>
+                    <input type="number" value=<?= $C_postcode ?> maxlength="7" class="box" required>
+                </li>
+                <li>
+                    <p>住所１</p>
+                    <input type="text" value=<?= $C_address1 ?> maxlength="80" class="box" required>
+                </li>
+                <li>
+                    <p>住所２(無い場合は「なし」)</p>
+                    <input type="text" value=<?= $C_address2 ?> maxlength="20" class="box" required>
+                </li>
+                <li>
+                    <p>電話番号</p>
+                    <input type="number" value=<?= $C_phone ?> maxlength="12" class="box" required>
+                </li>
+                <li>
+                    <p>メールアドレス</p>
+                    <input type="email" value=<?= $C_email ?> maxlength="80" class="box" required>
+                </li>
             </ul>
-            <!--前のページからお客様情報を持ってくる-->
-        </div>
-        <br>
-        <div id="total">
-            <h1>会計情報</h1>
-        </div>
-        <div class="container1">
-            <div class="container2">
-                <div class="item1">金額</div>
-                <div class="item2">1000円</div>
-            </div>
-            <div class="container2">
-                <div class="item1">消費税</div>
-                <div class="item2">100円</div>
-            </div>
-            <div class="container2 aaa">
-                <div class="item1">小計</div>
-                <div class="item2">1100円</div>
-            </div>
-        </div>
-        <div id="orde">
-            <button class="orde_btn" onclick="location.href=''">注文確定</button>
-        </div>
+        </form>
     </div>
 </main>
 

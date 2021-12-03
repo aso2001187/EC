@@ -19,9 +19,29 @@ table{
     font-size: 20px;
 }
 
-.num td{
-    border-bottom: 2px solid #000;
+.container1{
+    width:20%;
 }
+
+.container2{
+    display: flex;
+}
+
+.item1{
+    width:50%;
+    float: left;
+}
+
+.item2{
+    width:50%;
+    float: right;
+    text-align:right
+}
+
+.aaa{
+    border-top: 2px solid #000000;
+}
+
 
 .orde_btn{
     margin-left:35%;

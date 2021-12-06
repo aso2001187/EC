@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="登録画面終わり">
+
       <change afterPath="$PROJECT_DIR$/SlimeProject/css/sidebar_proto.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlimeProject/css/prof.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/prof.css" afterDir="false" />
@@ -9,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/SlimeProject/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlimeProject/html/prof.html" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/html/prof.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlimeProject/html/prototype.html" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/html/prototype.html" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +41,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SlimeProject/pic" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kai motomichi\Documents\GitHub\EC\SlimeProject\pic" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -57,6 +64,8 @@
       <workItem from="1636681995554" duration="1006000" />
       <workItem from="1637288448404" duration="611000" />
       <workItem from="1637889231461" duration="6324000" />
+
+
     </task>
     <task id="LOCAL-00001" summary="test kai">
       <created>1636507709354</created>

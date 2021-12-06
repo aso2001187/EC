@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/buy-1.css">
+    <link rel="stylesheet" href="../css/prof.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -73,40 +73,60 @@
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
+    <?php
+    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+        'LAA1291072',
+        'asot6');
+
+    $sql = $pdo->query('SELECT * FROM costomer');
+
+    $C_name = $_POST['C_name'];
+    $C_postcode = $_POST['C_postcode'];
+    $C_address1 = $_POST['C_address1'];
+    $C_address2 = $_POST['C_address2'];
+    $C_phone = $_POST['C_phone'];
+    $C_email = $_POST['C_email'];
+
+    $pdo = null;
+    ?>
     <div class="main_area">
-            <h2>お届け先</h2>
+        <form>
+            <h1>お客様情報 <button type="submit">更新</button></h1>
             <!--
                 説明
                 各inputのvalue(規定値)にDB(会員TBL)から持ってきた値
-                をあらかじめphpで入力す
+                をあらかじめphpで入力する。
+                formタグを使用し、画面上部の更新ボタンで、valueの
+                中の値をDBに登録(上書き)する。
             -->
             <ul>
                 <li>
                     <p>お名前</p>
-                    <input type="text" value="DB:'C_name'" maxlength="50" class="box" required>
+                    <input type="text" value=<?= $C_name ?> maxlength="50" class="box" required>
                 </li>
                 <li>
                     <p>郵便番号</p>
-                    <input type="number" value="DB:'C_postcode'" maxlength="7" class="box" required>
+                    <input type="number" value=<?= $C_postcode ?> maxlength="7" class="box" required>
                 </li>
                 <li>
                     <p>住所１</p>
-                    <input type="text" value="DB:'C_address1'" maxlength="80" class="box" required>
+                    <input type="text" value=<?= $C_address1 ?> maxlength="80" class="box" required>
                 </li>
                 <li>
-                    <p>住所２</p>
-                    <input type="text" value="DB:'C_address2'" maxlength="20" class="box" required>
+                    <p>住所２(無い場合は「なし」)</p>
+                    <input type="text" value=<?= $C_address2 ?> maxlength="20" class="box" required>
                 </li>
                 <li>
                     <p>電話番号</p>
-                    <input type="number" value="DB:'C_phone'" maxlength="12" class="box" required>
+                    <input type="number" value=<?= $C_phone ?> maxlength="12" class="box" required>
                 </li>
                 <li>
                     <p>メールアドレス</p>
-                    <input type="email" value="DB:'C_email'" maxlength="80" class="box" required>
+                    <input type="email" value=<?= $C_email ?> maxlength="80" class="box" required>
                 </li>
             </ul>
-        <button class="cart_btn" onclick="location.href='buy-2.html'">入力情報確認</button>
+        </form>
     </div>
 </main>
 

@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/buy-1.css">
+    <link rel="stylesheet" href="../css/###pagename.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -18,7 +18,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
+            <a href="0">logo<img src="0#"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -71,43 +71,39 @@
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
+<!--ここからメインエリア-->
 <main>
-    <div class="main_area">
-            <h2>お届け先</h2>
-            <!--
-                説明
-                各inputのvalue(規定値)にDB(会員TBL)から持ってきた値
-                をあらかじめphpで入力す
-            -->
-            <ul>
-                <li>
-                    <p>お名前</p>
-                    <input type="text" value="DB:'C_name'" maxlength="50" class="box" required>
-                </li>
-                <li>
-                    <p>郵便番号</p>
-                    <input type="number" value="DB:'C_postcode'" maxlength="7" class="box" required>
-                </li>
-                <li>
-                    <p>住所１</p>
-                    <input type="text" value="DB:'C_address1'" maxlength="80" class="box" required>
-                </li>
-                <li>
-                    <p>住所２</p>
-                    <input type="text" value="DB:'C_address2'" maxlength="20" class="box" required>
-                </li>
-                <li>
-                    <p>電話番号</p>
-                    <input type="number" value="DB:'C_phone'" maxlength="12" class="box" required>
-                </li>
-                <li>
-                    <p>メールアドレス</p>
-                    <input type="email" value="DB:'C_email'" maxlength="80" class="box" required>
-                </li>
-            </ul>
-        <button class="cart_btn" onclick="location.href='buy-2.html'">入力情報確認</button>
+    <!--とりあえずdiv idでそれぞれ囲っているよ-->
+    <!--商品画像 cssで回り込み処理-->
+    <div id="itemimg">
+        <!--画像アップロード前-->
+        <img src="../pic/#000.png">
     </div>
+    <!--商品詳細-->
+    <div id="itemedtail">
+        <p>商品詳細</p>
+    </div>
+    <!--商品名と値段をDBから持ってこれると最高-->
+    <div id="itemname">
+        <h2>商品名</h2>
+    </div>
+    <div id="itemprice">
+        <h2>￥XXXX-</h2>
+    </div>
+    <div id="itemtags">
+        <ul class="itemdetailtags">
+            <li>#商品タグ1</li>
+            <li>#商品タグ2</li>
+        </ul>
+    </div>
+    <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
+   <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
+    <button type="submit" value="カートへ"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
+    <!--関連商品-->
+    <!--タグが最も近い商品を検索して表示-->
+    <!--SQLで検索した商品の表示-->
+    <button type="submit"><img src="../pic/" alt="商品" /></button>
+    <button type="submit"><img src="../pic/" alt="商品" /></button>
 </main>
 
 <!--使ってるアイコンのスクリプト-->

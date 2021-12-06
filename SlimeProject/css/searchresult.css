@@ -1,6 +1,15 @@
+.main{
+    background-color: #ffffff;
+    height: 93%;
+    width: 90%;
+    min-height:500px;
+    border-radius:5px;
+    padding:4% 10%;
+}
+
 .tags{
-    padding: 0;
     list-style: none;
+    float: left;
 }
 .tags ul{
     height: 100%;
@@ -12,16 +21,18 @@
     display: block;
     text-transform: uppercase;
     transition: color .1s;
+    background-color: blueviolet;
 }
 .tags li a:hover{
     color: #cbcbcb;
 }
 
 .itemimg{
-    float: right;
     background-color: aqua;
     display: flex;
     justify-content: space-between;
+    margin-left: 150px;
+    margin-right: auto;
 }
 
 .item1{
@@ -33,13 +44,6 @@
 
 }
 .item2{
-    margin: 23px;
-    padding:80px;
-    background: blue;
-    flex-grow: 1;
-    height: 200px;
-}
-.item3{
     margin: 23px;
     padding:80px;
     background: blue;

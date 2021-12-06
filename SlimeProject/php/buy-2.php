@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -77,12 +78,12 @@
         <div id="client">
             <h1>お客様情報</h1>
             <ul>
-                <li>お名前</li>
-                <li>郵便番号</li>
-                <li>住所1</li>
-                <li>住所2</li>
-                <li>電話番号</li>
-                <li>メールアドレス</li>
+                <li><? echo $_POST['user'] ?></li>
+                <li><? echo $_POST['postcode'] ?></li>
+                <li><? echo $_POST['address1'] ?></li>
+                <li><? echo $_POST['address2'] ?></li>
+                <li><? echo $_POST['phone'] ?></li>
+                <li><? echo $_POST['email'] ?></li>
             </ul>
             <!--前のページからお客様情報を持ってくる-->
         </div>
@@ -93,15 +94,15 @@
         <div class="container1">
             <div class="container2">
                 <div class="item1">金額</div>
-                <div class="item2">1000円</div>
+                <div class="item2"><? echo $_SESSION['kingaku']?>円</div>
             </div>
             <div class="container2">
                 <div class="item1">消費税</div>
-                <div class="item2">100円</div>
+                <div class="item2"><? $tax=new $_SESSION['kingaku']*0.1; echo $tax?>円</div>
             </div>
             <div class="container2 aaa">
                 <div class="item1">小計</div>
-                <div class="item2">1100円</div>
+                <div class="item2"><? echo $_SESSION['kingaku'] + $tax?>円</div>
             </div>
         </div>
         <div id="order">
@@ -117,3 +118,4 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+

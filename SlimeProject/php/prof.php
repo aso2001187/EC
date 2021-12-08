@@ -79,14 +79,18 @@
         'LAA1291072',
         'asot6');
 
-    $sql = $pdo->query('SELECT * FROM costomer');
+    $sql = $pdo->query('SELECT * FROM costomer WHERE C_id = 1');
 
-    $C_name = $_POST['C_name'];
+    foreach ($sql as $row){
+        $row['C_name'];$row['C_postcode'];$row['C_address1'];$row['C_address2'];$row['C_phone'];$row['C_email'];
+    }
+    
+    /*$C_name = $_POST['C_name'];
     $C_postcode = $_POST['C_postcode'];
     $C_address1 = $_POST['C_address1'];
     $C_address2 = $_POST['C_address2'];
     $C_phone = $_POST['C_phone'];
-    $C_email = $_POST['C_email'];
+    $C_email = $_POST['C_email'];*/
 
     $pdo = null;
     ?>
@@ -103,27 +107,27 @@
             <ul>
                 <li>
                     <p>お名前</p>
-                    <input type="text" value=<?= $C_name ?> maxlength="50" class="box" required>
+                    <input type="text" value=<?= $row['C_name'] ?> maxlength="50" class="box" required>
                 </li>
                 <li>
                     <p>郵便番号</p>
-                    <input type="number" value=<?= $C_postcode ?> maxlength="7" class="box" required>
+                    <input type="number" value=<?= $row['C_postcode'] ?> maxlength="7" class="box" required>
                 </li>
                 <li>
                     <p>住所１</p>
-                    <input type="text" value=<?= $C_address1 ?> maxlength="80" class="box" required>
+                    <input type="text" value=<?= $row['C_address1'] ?> maxlength="80" class="box" required>
                 </li>
                 <li>
                     <p>住所２(無い場合は「なし」)</p>
-                    <input type="text" value=<?= $C_address2 ?> maxlength="20" class="box" required>
+                    <input type="text" value=<?= $row['C_address2'] ?> maxlength="20" class="box" required>
                 </li>
                 <li>
                     <p>電話番号</p>
-                    <input type="number" value=<?= $C_phone ?> maxlength="12" class="box" required>
+                    <input type="number" value=<?= $row['C_phone'] ?> maxlength="12" class="box" required>
                 </li>
                 <li>
                     <p>メールアドレス</p>
-                    <input type="email" value=<?= $C_email ?> maxlength="80" class="box" required>
+                    <input type="email" value=<?= $row['C_email'] ?> maxlength="80" class="box" required>
                 </li>
             </ul>
         </form>

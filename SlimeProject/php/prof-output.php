@@ -10,7 +10,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/prof.css">
+    <link rel="stylesheet" href="../css/toppage.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -18,7 +18,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
+            <a href="0">logo<img src="0#"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -61,7 +61,7 @@
     <div id="sidebar-menu" tabindex="0">
         <ul>
             <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li> <!---->
+            <li><a href="#0">##TAG1</a></li>
             <li><a href="#0">##TAG2</a></li>
             <li><a href="#0">##TAG3</a></li>
             <li><a href="#0">##TAG4...</a></li>
@@ -71,68 +71,33 @@
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
+<!--ここからメインエリア-->
 <main>
     <?php
-    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+
+    $pdo = new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
         'LAA1291072',
         'asot6');
 
-    $sql = $pdo->query('SELECT * FROM costomer WHERE C_id = 1');
+    $sql = $pdo->prepare('update costomer set C_name = ?, C_postcode = ?, C_address1 = ?, C_address2 = ?, C_phone = ?, C_email = ? where C_id = ?');
 
-    foreach ($sql as $row){
-        $row['C_name'];$row['C_postcode'];$row['C_address1'];$row['C_address2'];$row['C_phone'];$row['C_email'];
+    $sql->bindValue(1,$_POST['C_name'], PDO::PARAM_STR);
+    $sql->bindValue(2,$_POST['C_postcode'], PDO::PARAM_STR);
+    $sql->bindValue(3,$_POST['C_address1'], PDO::PARAM_STR);
+    $sql->bindValue(4,$_POST['C_address2'], PDO::PARAM_STR);
+    $sql->bindValue(5,$_POST['C_phone'], PDO::PARAM_STR);
+    $sql->bindValue(6,$_POST['C_email'], PDO::PARAM_STR);
+    $sql->bindValue(7,$_POST['C_id'], PDO::PARAM_STR);
+    $sql->execute();
+
+    if($sql->rowCount()>0){
+        echo '<p>更新完了しました</p>';
+    }else{
+        echo '<p>更新エラー</p>';
     }
-    
-    /*$C_name = $_POST['C_name'];
-    $C_postcode = $_POST['C_postcode'];
-    $C_address1 = $_POST['C_address1'];
-    $C_address2 = $_POST['C_address2'];
-    $C_phone = $_POST['C_phone'];
-    $C_email = $_POST['C_email'];*/
-
-    $pdo = null;
     ?>
-    <div class="main_area">
-        <form action="prof-output.php" method="post">
-            <h1>お客様情報 <button type="submit">更新</button></h1>
-            <!--
-                説明
-                各inputのvalue(規定値)にDB(会員TBL)から持ってきた値
-                をあらかじめphpで入力する。
-                formタグを使用し、画面上部の更新ボタンで、valueの
-                中の値をDBに登録(上書き)する。
-            -->
-            <ul>
-                <li>
-                    <p>お名前</p>
-                    <input type="text" name="C_name" value=<?= $row['C_name'] ?> maxlength="50" class="box" required>
-                </li>
-                <li>
-                    <p>郵便番号</p>
-                    <input type="number" name="C_postcode" value=<?= $row['C_postcode'] ?> maxlength="7" class="box" required>
-                </li>
-                <li>
-                    <p>住所１</p>
-                    <input type="text" name="C_address1" value=<?= $row['C_address1'] ?> maxlength="80" class="box" required>
-                </li>
-                <li>
-                    <p>住所２(無い場合は「なし」)</p>
-                    <input type="text" name="C_address2" value=<?= $row['C_address2'] ?> maxlength="20" class="box" required>
-                </li>
-                <li>
-                    <p>電話番号</p>
-                    <input type="number" name="C_phone" value=<?= $row['C_phone'] ?> maxlength="12" class="box" required>
-                </li>
-                <li>
-                    <p>メールアドレス</p>
-                    <input type="email" name="C_email" value=<?= $row['C_email'] ?> maxlength="80" class="box" required>
-                </li>
-            </ul>
-            <input type="hidden" name="C_id" value="1"<!--C_idの変数を入力-->>
-        </form>
-    </div>
+
 </main>
 
 <!--使ってるアイコンのスクリプト-->

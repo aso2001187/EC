@@ -1,0 +1,20 @@
+.main_area{
+    margin: 23px;
+    padding:80px;
+    flex-grow: 1;
+    height: 200px;
+}
+.cart_btn{
+    margin-left:35%;
+    width: 130px;
+    height:40px;
+    border:none;
+    border-radius:5px;
+    color:#464646;
+    background-color: #dedede;
+    white-space: nowrap;
+    background-size: 100px;
+}
+.cart_btn:hover {
+    background-color: #efefef;
+    transition: 0.5s;

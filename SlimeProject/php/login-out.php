@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -90,23 +91,24 @@
             'LAA1291072',
             'asot6');
         $sql=$pdo->prepare('select * from costomer where C_email = ?');
-        $sql->execute([$mail]);
+        $sql->execute([$mail,$pw]);
         foreach ($sql as $row){
-            $id_check=$row['C_id'];
-            $name=$row['C_name'];
+            $_SESSION['customer'] = [
+                    'id' => $row['C_id'],
+                    'name' => $row['C_name'],
+                    'postcode' => $row['C_postcode'],
+                    'address1' => $row['C_address1'],
+                    'address2' => $row['C_address2'],
+                    'phone' => $row['C_phone'],
+                    'email' => $row['C_email']
+            ];
         }
-        $sql2=$pdo->prepare('select * from password where p_id=?');
-        $sql2->execute([$id_check]);
-        foreach($sql2 as $row2){
-            $pw_check=$row2['p_pass'];
-        }
+
         if($pw_check===$pw){
             echo $name,'さん ようこそ';
         }else{
             echo 'ログイン失敗';
         }
-
-        $pdo=null;
         ?>                                          <!--ログインフォームここまで-->
     </div>
 </main>

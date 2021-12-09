@@ -82,9 +82,10 @@ dbname=LAA1291072-team;charset=utf8',
     <div class="main_area">
         <h1>会員登録<span></span></h1>
         <form method="post" action="signup-out.php" class="login_cls"> <!--ログイン用form-->
+            <input type="hidden" value="1"<!--SQLで今のかいいんIDの最大値＋１のデータを作ってから-->>
             <ul>
                 <li><p>メールアドレス</p></li>
-                <li><input type="email" id="email" placeholder="your@mail.address"></li>
+                <li><input type="email" id="email" value="C_email" placeholder="your@mail.address"></li>
                 <li><p>メールアドレス(確認)</p></li>
                 <li><input type="email" id="email_cfm" placeholder="your@mail.address"></li>
                 <li><p>パスワード</p></li>

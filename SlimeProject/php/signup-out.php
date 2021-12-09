@@ -74,20 +74,20 @@
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
     <?
-     $C_id = $_POST['C_id'];
-    $C_name = $_POST['C_name'];
-    $C_postcode = $_POST['C_postcode'];
-    $_address1 = $_POST['C_address1'];
-    $C_address2 = $_POST['C_address2'];
-    $C_phone = $_POST['C_phone'];
+    $pdo = new PDO('mysql152.phy.lolipop.lan ;
+dbname=LAA1291072-team;charset=utf8',
+        'LAA1291072',
+        'asot6');
+
     $C_email = $_POST['C_email'];
-    $sql = $pdo->prepare('insert into costomer( C_name,C_postcode,C_adress1,C_adress2,C_phone,C_email) values(?, ?,?,?,?,?)');
-    $sql->bindValue(1,C_name,PDO::PARAM_STR);
-    $sql->bindValue(2,C_postcode,PDO::PARAM_STR);
-    $sql->bindValue(3,C_adress1,PDO::PARAM_STR);
-    $sql->bindValue(4,C_adress2,PDO::PARAM_STR);
-    $sql->bindValue(5,C_phone,PDO::PARAM_STR);
-    $sql->bindValue(6,C_email,PDO::PARAM_STR);
+    $sql = $pdo->prepare('insert into costomer C_email values ? ');
+
+    $sql->bindValue(1,$C_email,PDO::PARAM_STR);
+    $sql->execute();
+    $p_pass = $_POST['p_pass'];
+    $sql = $pdo->prepare('insert into costomer C_email values ? ');
+
+    $sql->bindValue(1,$p_pass,PDO::PARAM_STR);
     $sql->execute();
     ?>
 </main>

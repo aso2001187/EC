@@ -83,29 +83,25 @@
         if (empty($_POST["email"])) {
             echo'attention';
         }
-        $id_check=null;
-        $pw_check=null;
-        $name=null;
         $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
             'LAA1291072',
             'asot6');
-        $sql=$pdo->prepare('select * from costomer where C_email = ?');
+        $sql=$pdo->prepare('select * from customer where customer.C_email = ?, customer.C_id and (select password.p_id from password where password.p_pass = ?)');
         $sql->execute([$mail,$pw]);
         foreach ($sql as $row){
             $_SESSION['customer'] = [
-                    'id' => $row['C_id'],
-                    'name' => $row['C_name'],
-                    'postcode' => $row['C_postcode'],
-                    'address1' => $row['C_address1'],
-                    'address2' => $row['C_address2'],
-                    'phone' => $row['C_phone'],
-                    'email' => $row['C_email']
+                'id' => $row['C_id'],
+                'name' => $row['C_name'],
+                'postcode' => $row['C_postcode'],
+                'address1' => $row['C_address1'],
+                'address2' => $row['C_address2'],
+                'phone' => $row['C_phone'],
+                'email' => $row['C_email']
             ];
         }
-
-        if($pw_check===$pw){
-            echo $name,'さん ようこそ';
+        if(empty($sql)){
+            echo $_SESSION['customer']['C_name'],'さん ようこそ';
         }else{
             echo 'ログイン失敗';
         }

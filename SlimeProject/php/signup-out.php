@@ -73,23 +73,7 @@
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <?
-    $pdo = new PDO('mysql152.phy.lolipop.lan ;
-dbname=LAA1291072-team;charset=utf8',
-        'LAA1291072',
-        'asot6');
-
-    $C_email = $_POST['C_email'];
-    $sql = $pdo->prepare('insert into costomer C_email values ? ');
-
-    $sql->bindValue(1,$C_email,PDO::PARAM_STR);
-    $sql->execute();
-    $p_pass = $_POST['p_pass'];
-    $sql = $pdo->prepare('insert into costomer C_email values ? ');
-
-    $sql->bindValue(1,$p_pass,PDO::PARAM_STR);
-    $sql->execute();
-    ?>
+   
 </main>
 
 <!--使ってるアイコンのスクリプト-->

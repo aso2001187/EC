@@ -87,7 +87,7 @@
             dbname=LAA1291072-team;charset=utf8',
             'LAA1291072',
             'asot6');
-        $sql=$pdo->prepare('select * from customer where customer.C_email = ?, customer.C_id and (select password.p_id from password where password.p_pass = ?)');
+        $sql=$pdo->prepare('select * from costomer where costomer.C_email = ? and costomer.C_id and (select password.p_id from password where password.p_pass = ?)');
         $sql->execute([$mail,$pw]);
         foreach ($sql as $row){
             $_SESSION['customer'] = [
@@ -100,8 +100,8 @@
                 'email' => $row['C_email']
             ];
         }
-        if(empty($sql)){
-            echo $_SESSION['customer']['C_name'],'さん ようこそ';
+        if(isset($_SESSION['customer'])){
+            echo $_SESSION['customer']['name'],'さん ようこそ';
         }else{
             echo 'ログイン失敗';
         }

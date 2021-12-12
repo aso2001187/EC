@@ -16,6 +16,10 @@
 
 		各ログイン画面はデザインは同じ。会員登録ボタンを配置し、会員登録はno3にすべて飛ばす
 
+		SESSION変数について
+		$_SESSION['customer'] = ['id' => $row['C_id'],'name' => $row['C_name'],'postcode' => $row['C_postcode'],'address1' => $row['C_address1'],'address2' => $row['C_address2'],'phone' => $row['C_phone'],'email' => $row['C_email']];
+		で保存しているため、$_SESSION['customer']['id']などで呼び出せるようになったよ
+
 	gitファイル
 		SlimeProject
 		-	css	デザイン ヘッダー(header.css) 画面設定(setting.php) サードバー(sidebar.css) 内部名.css(画面毎のスタイル設定)

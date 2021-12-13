@@ -85,10 +85,10 @@
         $row['g_name'];$row['g_price'];
     }
 
-    $sql = $pdo->query('SELECT  FROM  WHERE tm_itemid = 1');
+    $sql = $pdo->query('SELECT * FROM tag WHERE tag.t_tagid=(SELECT tm_tagid FROM tagmanage WHERE tm_itemid=?');
 
     foreach ($sql as $row){
-        $row[''];$row[''];
+        $row['tm_tagid'];$row['tm_itemid'];
     }
 
     $pdo = null;
@@ -127,8 +127,8 @@
                 </div>
                 <div id="itemtags">
                     <ul class="itemdetailtags">
-                        <li><a>#商品タグ1</a></li>
-                        <li><a>#商品タグ2</a></li>
+                        <li><a>#商品タグ1<?= $row['tm_tagid'] ?></a></li>
+                        <li><a>#商品タグ2<?= $row['tm_tagid'] ?></a></li>
                     </ul>
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->

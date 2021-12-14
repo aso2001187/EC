@@ -74,6 +74,13 @@
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
+    <?php
+    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+        'LAA1291072',
+        'asot6');
+
+    ?>
     <div id="cart">
         <div id="itemsum">
             <p>値段合計</p>
@@ -85,7 +92,10 @@
             </div>
             <div id="itemdelete">
                 <!--削除ボタンはDBから削除+リダイレクト-->
-                <button type="submit">削除</button>
+                <button type="submit"<?PHP
+                        $sql=$pdo->prepare('DELETE FROM orderdetail WHERE od_orderid = ? and od_itemid = ?');
+                        $pdo
+                ?>>削除</button>
             </div>
             <div id="itemprice">
                 <p>値段</p>

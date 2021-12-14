@@ -89,15 +89,26 @@
             <div id="itemimg">
                 <!--画像アップロード前-->
                 <img src="../pic/#000.png">
+                <?php
+                $itemid=1;
+                $orderid=98765;
+                ?>
             </div>
             <div id="itemdelete">
                 <!--削除ボタンはDBから削除+リダイレクト-->
-                <button type="submit"<?PHP
+                <button type="submit"
+                        <?PHP
                         $sql=$pdo->prepare('DELETE FROM orderdetail WHERE od_orderid = ? and od_itemid = ?');
-                        $pdo
-                ?>>削除</button>
+                        $sql->bindValue(1,$orderid,PDO::PARAM_STR);
+                        $sql->bindValue(2,$itemid,PDO::PARAM_STR);
+                        $sql->execute();
+                        ?>
+                >削除</button>
             </div>
             <div id="itemprice">
+                <?php
+                $sql2=$pdo->prepare('SELECT g_price FROM goods WHERE ');
+                ?>
                 <p>値段</p>
             </div>
         </div>

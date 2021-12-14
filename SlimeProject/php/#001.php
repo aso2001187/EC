@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -73,6 +74,7 @@
 
 <!--ここからメインエリア-->
 <main>
+<form action="" method="post">
     <?php
     $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
@@ -95,7 +97,6 @@
         $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
     }
 
-    $pdo = null;
     ?>
     <div class="in">
         <!--とりあえずdiv idでそれぞれ囲っているよ-->
@@ -137,6 +138,9 @@
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                 <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
+                <input type="hidden" name="redirect">
+                <input type="hidden" name="item_id">
+                <input type="hidden" name="number">
                 <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
                     </div>
                 </form>
@@ -160,3 +164,14 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+<?php
+if(!empty($_POST['redirect'])) {
+
+    $sql = $pdo->prepare('INSERT INTO carton VALUE(?,?,?)');
+    $sql -> bindValue(1,$_POST['item_id'], PDO::PARAM_STR);
+    $sql -> bindValue(2,$_SESSION['customer']['id'], PDO::PARAM_STR);
+    $sql -> bindValue(3,$_POST['number'], PDO::PARAM_STR);
+    $sql->execute();
+    $pdo = null;
+}
+?>

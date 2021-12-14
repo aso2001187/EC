@@ -34,6 +34,6 @@
     white-space: nowrap;
     background-size: 100px;
 }
-.exbtn:hover {
+.exbtn :hover {
     background-color: #efefef;
     transition: 0.5s;

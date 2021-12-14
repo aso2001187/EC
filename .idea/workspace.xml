@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="登録画面終わり">
-
-      <change afterPath="$PROJECT_DIR$/SlimeProject/css/sidebar_proto.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SlimeProject/php/buy-1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SlimeProject/php/buy-2-out.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/css/prof.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/prof.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/css/setting.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/setting.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/html/prof.html" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/html/prof.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/html/prototype.html" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/html/prototype.html" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/SlimeProject/css/buy-1.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/buy-1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlimeProject/css/buy-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/css/buy-2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlimeProject/php/buy-2.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/buy-2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlimeProject/php/login-out.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/login-out.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +62,8 @@
       <workItem from="1636681995554" duration="1006000" />
       <workItem from="1637288448404" duration="611000" />
       <workItem from="1637889231461" duration="6324000" />
-
-
+      <workItem from="1639096963280" duration="9946000" />
+      <workItem from="1639441697824" duration="2196000" />
     </task>
     <task id="LOCAL-00001" summary="test kai">
       <created>1636507709354</created>

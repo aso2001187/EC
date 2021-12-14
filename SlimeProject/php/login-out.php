@@ -103,7 +103,6 @@
                     'email' => $row['C_email']
             ];
         }
-
         if($pw_check===$pw){
             echo $name,'さん ようこそ';
         }else{

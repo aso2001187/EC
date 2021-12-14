@@ -85,10 +85,14 @@
         $row['g_name'];$row['g_price'];
     }
 
-    $sql = $pdo->query('SELECT * FROM tag WHERE tag.t_tagid=(SELECT tm_tagid FROM tagmanage WHERE tm_itemid=?');
+    $tm_itemid = 1;
+    $sql = $pdo->prepare('SELECT * FROM tag inner join tagmanageon tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
 
-    foreach ($sql as $row){
-        $row['tm_tagid'];$row['tm_itemid'];
+    $sql->bindValue(1,$tm_itemid,PDO::PARAM_STR);
+    $sql->execute();
+
+    foreach ($sql as $row1){
+        $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
     }
 
     $pdo = null;
@@ -120,15 +124,15 @@
             <div class="main_left">
                 <!--商品名と値段をDBから持ってこれると最高-->
                 <div id="itemname">
-                    <h2><!--商品名--><input type="text" name="g_name" value=<?= $row['g_name'] ?>></h2>
+                    <h2><!--商品名--><input name="g_name" value=<?= $row['g_name'] ?>></h2>
                 </div>
                 <div id="itemprice">
-                    <h2>￥<input type="number" name="g_price" value=<?= $row['g_price'] ?>></h2>
+                    <h2>￥<input name="g_price" value=<?= $row['g_price'] ?>></h2>
                 </div>
                 <div id="itemtags">
                     <ul class="itemdetailtags">
-                        <li><a>#商品タグ1<?= $row['tm_tagid'] ?></a></li>
-                        <li><a>#商品タグ2<?= $row['tm_tagid'] ?></a></li>
+                        <li><a>#商品タグ1<?= $row1['t_tagname'] ?></a></li>
+                        <li><a>#商品タグ2<?= $row1['t_tagname'] ?></a></li>
                     </ul>
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->

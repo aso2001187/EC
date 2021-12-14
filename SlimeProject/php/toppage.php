@@ -73,7 +73,31 @@
 
 <!--ここからメインエリア-->
 <main>
-
+    <!--一押し商品バー-->
+    <!--ドメイン未記入--><a href="EC/SlimeProject/pic/"><!--画像なし--><img src="../pic/"></a>
+    <form action="cgi-bin/abc.cgi" method="post">
+        <!--画像なし-->
+        <div class="topitemimg">
+            <div class="item1"><button type="submit"><img id="gazou1" src="../pic/" alt="商品" /></button></div>
+            <div class="item2"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <div class="item3"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <br><br>
+        </div>
+        <div class="topitemimg">
+            <div class="item1"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <div class="item2"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <div class="item3"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+        </div>
+    </form>
+    <script type="text/javascript">
+        var randomList = new Array(
+            "../pic/001.png",
+            "../pic/002.png"
+            );
+        var num = Math.floor(Math.random() * randomList.length);
+        var img=document.getElementById("gazou1");
+        img.src=randomList[num];
+    </script>
 
 </main>
 

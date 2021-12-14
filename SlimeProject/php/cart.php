@@ -1,4 +1,19 @@
 <?php session_start();?>
+<?php
+$pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+    'LAA1291072',
+    'asot6');
+$itemid = null;
+$number = null;
+/*カートから削除のリダイレクト*/
+if(!empty($_POST['delete'])) {
+    $sql = $pdo->prepare('DELETE FROM carton WHERE ca_itemid = ? and ca_id = ?');
+    $sql->bindValue(1, $itemid, PDO::PARAM_STR);
+    $sql->bindValue(2, $_SESSION['customer']['id'], PDO::PARAM_STR);
+    $sql->execute();
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -75,43 +90,44 @@
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
     <?php
-    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
-            dbname=LAA1291072-team;charset=utf8',
-        'LAA1291072',
-        'asot6');
-
+    $sql = $pdo->prepare('SELECT ca_itemid,ca_number FROM carton WHERE ca_id = ?');
+    $sql->execute($_SESSION['customer']['id']);
+    $cartList = $sql ->fetchAll(PDO::FETCH_BOTH);
     ?>
     <div id="cart">
         <div id="itemsum">
             <p>値段合計</p>
         </div>
-        <div id="goods"><!--DBのデータの数分増やす-->
-            <div id="itemimg">
-                <!--画像アップロード前-->
-                <img src="../pic/#000.png">
-                <?php
-                $itemid=1;
-                $orderid=98765;
-                ?>
-            </div>
-            <div id="itemdelete">
-                <!--削除ボタンはDBから削除+リダイレクト-->
-                <button type="submit"
-                        <?PHP
-                        $sql=$pdo->prepare('DELETE FROM orderdetail WHERE od_orderid = ? and od_itemid = ?');
-                        $sql->bindValue(1,$orderid,PDO::PARAM_STR);
-                        $sql->bindValue(2,$itemid,PDO::PARAM_STR);
-                        $sql->execute();
-                        ?>
-                >削除</button>
-            </div>
-            <div id="itemprice">
-                <?php
-                $sql2=$pdo->prepare('SELECT g_price FROM goods WHERE ');
-                ?>
-                <p>値段</p>
-            </div>
-        </div>
+        <?php
+            for($i=0;count($cartList)/2 < 0;$i++){
+                $sql2=$pdo->prepare('SELECT g_price FROM goods WHERE g_itemid = ?');
+                $sql2->bindValue(1,$itemid,PDO::PARAM_STR);
+                $sql2->execute();
+                $price=null;
+                foreach ($sql2 as $row){
+                    $price= $row['g_price'];
+                }
+
+echo <<<EOD
+                <div id="goods"><!--DBのデータの数分増やす-->
+                    <div id="itemimg">
+                        <!--画像アップロード前-->
+                        <img src="../pic/#000.png">
+                    </div>
+                    <div id="itemdelete">
+                        <!--削除ボタンはDBから削除+リダイレクト-->
+                        <form action="" method="post">
+                            <input type="hidden" name="delete">
+                            <button type="submit">削除</button>
+                        </form>
+                    </div>
+                    <div id="itemprice">
+                        <p>$price</p>
+                    </div>
+                </div>
+            }
+EOD;
+        ?>
         <div id="total">
             <button class="cart_btn" onclick="location.href='buy-1.html'">会計へ進む</button>
         </div>

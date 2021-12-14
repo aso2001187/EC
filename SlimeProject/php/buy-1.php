@@ -11,7 +11,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/buy-2.css">
+    <link rel="stylesheet" href="../css/buy-1.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -19,7 +19,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="0">logo<img src="0#"></a>
+            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -62,7 +62,7 @@
     <div id="sidebar-menu" tabindex="0">
         <ul>
             <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li>
+            <li><a href="#0">##TAG1</a></li> <!---->
             <li><a href="#0">##TAG2</a></li>
             <li><a href="#0">##TAG3</a></li>
             <li><a href="#0">##TAG4...</a></li>
@@ -72,59 +72,50 @@
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア-->
+<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <div id="main">
-        <div id="client">
-            <h1>お客様情報</h1>
-            <ul>
-                <li><?= $_POST['name'] ?></li>
-                <li><?= $_POST['postcode'] ?></li>
-                <li><?= $_POST['address1'] ?></li>
-                <li><?= $_POST['address2'] ?></li>
-                <li><?= $_POST['phone'] ?></li>
-                <li><?= $_POST['email'] ?></li>
-            </ul>
+    <div class="main_area">
+        <h2>お届け先</h2>
+        <!--
+            説明
+            各inputのvalue(規定値)にDB(会員TBL)から持ってきた値
+            をあらかじめphpで入力す
+        -->
+        <form method="post" action="buy-2.php" class="buy1form">
+        <ul>
+            <li>
+                <p>お名前</p>
+                <input type="text" name="name" value="<?php echo $_SESSION['customer']['name']; ?>" maxlength="50" class="box" required>
+            </li>
+            <li>
+                <p>郵便番号</p>
+                <input type="number" name="postcode" value="<?php echo $_SESSION['customer']['postcode']; ?>" maxlength="7" class="box" required>
+            </li>
+            <li>
+                <p>住所１</p>
+                <input type="text" name="address1" value="<?= $_SESSION['customer']['address1']; ?>" maxlength="80" class="box" required>
+            </li>
+            <li>
+                <p>住所２</p>
+                <input type="text" name="address2" value="<?= $_SESSION['customer']['address2']; ?>" maxlength="20" class="box" required>
+            </li>
+            <li>
+                <p>電話番号</p>
+                <input type="number" name="phone" value="<?= $_SESSION['customer']['phone']; ?>" maxlength="12" class="box" required>
+            </li>
+            <li>
+                <p>メールアドレス</p>
+                <input type="email" name="email" value="<?= $_SESSION['customer']['email']; ?>" maxlength="80" class="box" required>
+            </li>
+        </ul>
             <?php
-            $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
-            dbname=LAA1291072-team;charset=utf8',
-                'LAA1291072',
-                'asot6');
-            $sql=$pdo->prepare('update costomer set C_name=?,C_postcode=?,C_address1=?,C_address2=?,C_phone=?,C_email=? where C_id=?');
-            $sql->bindValue(1,$_POST['name']);
-            $sql->bindValue(2,$_POST['postcode']);
-            $sql->bindValue(3,$_POST['address1']);
-            $sql->bindValue(4,$_POST['address2']);
-            $sql->bindValue(5,$_POST['phone']);
-            $sql->bindValue(6,$_POST['email']);
-            $sql->bindValue(7,$_SESSION['customer']['id']);
-            $sql->execute();
+            echo $_SESSION['customer']['name'];
+            if(empty($_SESSION['customer']['id'])){
+                echo 'から';
+            }
             ?>
-            <!--前のページからお客様情報を持ってくる-->
-        </div>
-        <br>
-        <div id="total">
-            <h1>会計情報</h1>
-        </div>
-        <div class="container1">
-            <div class="container2">
-                <div class="item1">金額</div>
-                <div class="item2"><?= $_SESSION['kingaku']?>円</div>
-            </div>
-            <div class="container2">
-                <div class="item1">消費税</div>
-                <div class="item2"><?php $tax=$_SESSION['kingaku']*0.1; echo $tax; ?>円</div>
-            </div>
-            <div class="container2 aaa">
-                <div class="item1">小計</div>
-                <div class="item2"><?= $_SESSION['kingaku']+$tax;?>円</div>
-            </div>
-        </div>
-        <div id="order">
-            <form method="post" action="buy-2-out.php">
-            <input type="submit" class="order_btn" value="注文確定">
-            </form>
-        </div>
+        <input type="submit" value="入力情報確認" class="exbtn">
+        </form>
     </div>
 </main>
 
@@ -135,4 +126,3 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-

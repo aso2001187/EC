@@ -6,12 +6,13 @@
     <title>Slime</title>
     <!--左サイドバーのcss-->
     <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/sidebar_proto.css">
     <!--上部ヘッダーのcss-->
     <link rel="stylesheet" href="../css/header.css">
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/buy-2.css">
+    <link rel="stylesheet" href="../css/###pagename.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -19,7 +20,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="0">logo<img src="0#"></a>
+            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -61,71 +62,57 @@
     </div>
     <div id="sidebar-menu" tabindex="0">
         <ul>
-            <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li>
-            <li><a href="#0">##TAG2</a></li>
-            <li><a href="#0">##TAG3</a></li>
-            <li><a href="#0">##TAG4...</a></li>
+            <li><a class="top" href="#0">TOP</a></li>
+            <li><a href="#0">##TAG1</a>
+                <ul>
+                    <li><a href="小分類">001</a></li>
+                    <li><a href="小分類">002</a></li>
+                    <li><a href="小分類">003</a></li>
+                </ul>
+            </li>
+            <li><a href="#0">##TAG2</a>
+                <ul>
+                    <li><a href="小分類">004</a></li>
+                    <li><a href="小分類">005</a></li>
+                    <li><a href="小分類">006</a></li>
+                </ul>
+            </li>
+            <li><a href="#0">##TAG3</a>
+                <ul>
+                    <li><a href="小分類">007</a></li>
+                    <li><a href="小分類">008</a></li>
+                    <li><a href="小分類">009</a></li>
+                </ul>
+            </li>
+            <li><a href="#0">##TAG4...</a>
+                <ul>
+                    <li><a href="小分類">010</a></li>
+                    <li><a href="小分類">011</a></li>
+                    <li><a href="小分類">012</a></li>
+                </ul>
+            </li>
             <li class="small"><a href="#0">Contact</a></li>
         </ul>
     </div>
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア-->
+<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <div id="main">
-        <div id="client">
-            <h1>お客様情報</h1>
-            <ul>
-                <li><?= $_POST['name'] ?></li>
-                <li><?= $_POST['postcode'] ?></li>
-                <li><?= $_POST['address1'] ?></li>
-                <li><?= $_POST['address2'] ?></li>
-                <li><?= $_POST['phone'] ?></li>
-                <li><?= $_POST['email'] ?></li>
-            </ul>
-            <?php
-            $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
-            dbname=LAA1291072-team;charset=utf8',
-                'LAA1291072',
-                'asot6');
-            $sql=$pdo->prepare('update costomer set C_name=?,C_postcode=?,C_address1=?,C_address2=?,C_phone=?,C_email=? where C_id=?');
-            $sql->bindValue(1,$_POST['name']);
-            $sql->bindValue(2,$_POST['postcode']);
-            $sql->bindValue(3,$_POST['address1']);
-            $sql->bindValue(4,$_POST['address2']);
-            $sql->bindValue(5,$_POST['phone']);
-            $sql->bindValue(6,$_POST['email']);
-            $sql->bindValue(7,$_SESSION['customer']['id']);
-            $sql->execute();
-            ?>
-            <!--前のページからお客様情報を持ってくる-->
-        </div>
-        <br>
-        <div id="total">
-            <h1>会計情報</h1>
-        </div>
-        <div class="container1">
-            <div class="container2">
-                <div class="item1">金額</div>
-                <div class="item2"><?= $_SESSION['kingaku']?>円</div>
-            </div>
-            <div class="container2">
-                <div class="item1">消費税</div>
-                <div class="item2"><?php $tax=$_SESSION['kingaku']*0.1; echo $tax; ?>円</div>
-            </div>
-            <div class="container2 aaa">
-                <div class="item1">小計</div>
-                <div class="item2"><?= $_SESSION['kingaku']+$tax;?>円</div>
-            </div>
-        </div>
-        <div id="order">
-            <form method="post" action="buy-2-out.php">
-            <input type="submit" class="order_btn" value="注文確定">
-            </form>
-        </div>
-    </div>
+    <?php
+        $_SESSION['customer']['id']=1;
+    $_SESSION['customer']['name']="吉鶴";
+    $_SESSION['customer']['postcode']=8120016;
+    $_SESSION['customer']['address1']="福岡県福岡市博多区博多南";
+    $_SESSION['customer']['address2']="2丁目12-3";
+    $_SESSION['customer']['phone']=120371007;
+    $_SESSION['customer']['email']="aso@s.asojuku.ac.jp";
+    $_SESSION['kingaku']=5000;
+
+    ?>
+    <a href="buy-1.php">
+        test link
+    </a>
 </main>
 
 <!--使ってるアイコンのスクリプト-->
@@ -135,4 +122,3 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-

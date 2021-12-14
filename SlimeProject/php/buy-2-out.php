@@ -11,7 +11,7 @@
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/buy-2.css">
+    <link rel="stylesheet" href="../css/buy-1.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -19,7 +19,7 @@
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->
         <div class="header_left">
-            <a href="0">logo<img src="0#"></a>
+            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
         </div>
         <!--ヘッダーの右寄せ部分-->
         <ul class="header_right">
@@ -62,7 +62,7 @@
     <div id="sidebar-menu" tabindex="0">
         <ul>
             <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li>
+            <li><a href="#0">##TAG1</a></li> <!---->
             <li><a href="#0">##TAG2</a></li>
             <li><a href="#0">##TAG3</a></li>
             <li><a href="#0">##TAG4...</a></li>
@@ -72,59 +72,52 @@
 </div>
 <!--サイドバー終わり-->
 
-<!--ここからメインエリア-->
+<!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <div id="main">
-        <div id="client">
-            <h1>お客様情報</h1>
-            <ul>
-                <li><?= $_POST['name'] ?></li>
-                <li><?= $_POST['postcode'] ?></li>
-                <li><?= $_POST['address1'] ?></li>
-                <li><?= $_POST['address2'] ?></li>
-                <li><?= $_POST['phone'] ?></li>
-                <li><?= $_POST['email'] ?></li>
-            </ul>
-            <?php
-            $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+    <div class="main_area">
+        <?php
+        $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
-                'LAA1291072',
-                'asot6');
-            $sql=$pdo->prepare('update costomer set C_name=?,C_postcode=?,C_address1=?,C_address2=?,C_phone=?,C_email=? where C_id=?');
-            $sql->bindValue(1,$_POST['name']);
-            $sql->bindValue(2,$_POST['postcode']);
-            $sql->bindValue(3,$_POST['address1']);
-            $sql->bindValue(4,$_POST['address2']);
-            $sql->bindValue(5,$_POST['phone']);
-            $sql->bindValue(6,$_POST['email']);
-            $sql->bindValue(7,$_SESSION['customer']['id']);
-            $sql->execute();
-            ?>
-            <!--前のページからお客様情報を持ってくる-->
-        </div>
-        <br>
-        <div id="total">
-            <h1>会計情報</h1>
-        </div>
-        <div class="container1">
-            <div class="container2">
-                <div class="item1">金額</div>
-                <div class="item2"><?= $_SESSION['kingaku']?>円</div>
-            </div>
-            <div class="container2">
-                <div class="item1">消費税</div>
-                <div class="item2"><?php $tax=$_SESSION['kingaku']*0.1; echo $tax; ?>円</div>
-            </div>
-            <div class="container2 aaa">
-                <div class="item1">小計</div>
-                <div class="item2"><?= $_SESSION['kingaku']+$tax;?>円</div>
-            </div>
-        </div>
-        <div id="order">
-            <form method="post" action="buy-2-out.php">
-            <input type="submit" class="order_btn" value="注文確定">
-            </form>
-        </div>
+            'LAA1291072',
+            'asot6');
+        $time=time();
+        $dae=date('Y-m-d');
+        //$sql=$pdo->prepare('insert into order(o_id,o_order,o_date,o_send) values(:id,:order,:date,1)');
+        $sql=$pdo->prepare('insert into order(o_id,o_orderid,o_date,o_send) values(?,?,?,?)');
+        $sql->bindValue(1,$_SESSION['customer']['id']);
+        $sql->bindValue(2,$time);
+        $sql->bindValue(3,$dae);
+        $sql->bindValue(4,1);
+        //$params=array(':id'=>$_SESSION['customer']['id'],':order'=>$time,':date'=>$dae);
+        $sql->execute();
+
+        $sql2=$pdo->prepare('insert into orderdetail(od_orderid,od_itemid,od_quantity) values(:odid,:itemid,:itemqua)');
+
+        $sql3=$pdo->prepare('select * from carton where ca_id=?');
+        $sql3->bindValue(1,$_SESSION['customer']['id']);
+        $sql3->execute();
+
+        $itemid=null;
+        $itemqua=null;
+        $meow=null;
+        foreach($sql3 as $row){
+            $itemid=$row['ca_itemid'];
+            $itemqua=$row['ca_number'];
+            $params2=array(':odid'=>$time,':itemid'=>$itemid,':itemqua'=>$itemqua);
+            $sql2->execute($params2);
+            $meow=1;
+        }
+        if($meow===1){
+            $sql4=$pdo->prepare('delete from carton where ca_id=?');
+            $sql4->bindValue(1,$_SESSION['customer']['id']);
+            $sql4->execute();
+        }
+
+        
+
+        ?>
+        注文完了しました。
+        <a href="toppage.php"><p>TOPへ戻る</p></a>
     </div>
 </main>
 
@@ -135,4 +128,3 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-

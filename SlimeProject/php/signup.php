@@ -73,16 +73,23 @@
 
 <!--ここからメインエリア-->
 <main>
+    <?
+    $pdo = new PDO('mysql152.phy.lolipop.lan ;
+dbname=LAA1291072-team;charset=utf8',
+        'LAA1291072',
+        'asot6');
+    ?>
+
     <div class="main_area">
         <h1>会員登録<span></span></h1>
-        <form method="post" action="##???" class="login_cls"> <!--ログイン用form-->
+        <form method="post" action="signup-out.php" class="login_cls">
             <ul>
                 <li><p>メールアドレス</p></li>
-                <li><input type="email" id="email" placeholder="your@mail.address"></li>
+                <li><input type="email" id="email" name="C_email"  placeholder="your@mail.address"></li>
                 <li><p>メールアドレス(確認)</p></li>
                 <li><input type="email" id="email_cfm" placeholder="your@mail.address"></li>
                 <li><p>パスワード</p></li>
-                <li><input type="password" id="password" placeholder="your password"></li>
+                <li><input type="password" id="password"name="p_pass" placeholder="your password"></li>
                 <li><p>パスワード(確認)</p></li>
                 <li><input type="password" id="password_cfm" placeholder="your password"></li>
             </ul>
@@ -90,7 +97,7 @@
                 <a href="login.html" class="sign_up">ログインページへ戻る</a>
                 <input type="submit" value="登録" class="login_btn">
             </div>
-        </form>                                                 <!--ログインフォームここまで-->
+        </form>
     </div>
 </main>
 

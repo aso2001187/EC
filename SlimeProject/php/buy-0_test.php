@@ -108,6 +108,7 @@
     $_SESSION['customer']['phone']=120371007;
     $_SESSION['customer']['email']="aso@s.asojuku.ac.jp";
 
+
     ?>
     <a href="buy-1.php">
         test link

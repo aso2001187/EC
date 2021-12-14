@@ -4,12 +4,10 @@ $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
     'LAA1291072',
     'asot6');
-$itemid = null;
-$number = null;
-/*カートから削除のリダイレクト*/
+/*削除ボタンのリダイレクト*/
 if(!empty($_POST['delete'])) {
     $sql = $pdo->prepare('DELETE FROM carton WHERE ca_itemid = ? and ca_id = ?');
-    $sql->bindValue(1, $itemid, PDO::PARAM_STR);
+    $sql->bindValue(1, $_SESSION['itemid'], PDO::PARAM_STR);
     $sql->bindValue(2, $_SESSION['customer']['id'], PDO::PARAM_STR);
     $sql->execute();
 }
@@ -89,45 +87,49 @@ if(!empty($_POST['delete'])) {
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <?php
-    $sql = $pdo->prepare('SELECT ca_itemid,ca_number FROM carton WHERE ca_id = ?');
-    $sql->execute($_SESSION['customer']['id']);
-    $cartList = $sql ->fetchAll(PDO::FETCH_BOTH);
-    ?>
     <div id="cart">
-        <div id="itemsum">
-            <p>値段合計</p>
-        </div>
         <?php
-            for($i=0;count($cartList)/2 < 0;$i++){
-                $sql2=$pdo->prepare('SELECT g_price FROM goods WHERE g_itemid = ?');
-                $sql2->bindValue(1,$itemid,PDO::PARAM_STR);
-                $sql2->execute();
-                $price=null;
-                foreach ($sql2 as $row){
-                    $price= $row['g_price'];
-                }
-
+        unset($_SESSION['kingaku']);
+        $_SESSION['kingaku']=0;
+        ?>
+    <?php
+    $id = $_SESSION['customer']['id'];
+    $sql = $pdo->prepare('SELECT carton.ca_itemid,carton.ca_number,goods.g_price FROM carton LEFT JOIN goods ON carton.ca_itemid = goods.g_itemid WHERE ca_id = ?');
+    $sql->bindValue(1,$id);
+    $sql->execute();
+    foreach ($sql as $row){
+        $tanka=null;
 echo <<<EOD
                 <div id="goods"><!--DBのデータの数分増やす-->
                     <div id="itemimg">
                         <!--画像アップロード前-->
-                        <img src="../pic/#000.png">
-                    </div>
+EOD;
+                        $itemid = $row['ca_itemid'];
+                        echo '<img src="../pic/',$itemid,'.png">';
+                    echo '</div>';
+                    $number = $row['ca_number'];
+                    echo '<p>',$number,'</p>';
+echo <<<EOD
                     <div id="itemdelete">
-                        <!--削除ボタンはDBから削除+リダイレクト-->
                         <form action="" method="post">
                             <input type="hidden" name="delete">
-                            <button type="submit">削除</button>
+                            <!--削除ボタンの実装一旦停止・作るならリダイレクトかな？<button type="submit">削除</button>-->
                         </form>
                     </div>
                     <div id="itemprice">
-                        <p>$price</p>
-                    </div>
-                </div>
-            }
 EOD;
+                        $tanka = $row['g_price'];
+                        $syoukei= $number*$tanka;
+                        echo '<p>単価：',$tanka,'</p>';
+                        echo '<p>小計：',$syoukei,'</p>';
+                        $_SESSION['kingaku']=$_SESSION['kingaku']+$syoukei;
+                    echo '</div>';
+                echo '</div>';
+            }
         ?>
+        <div id="itemsum">
+            <p>値段合計<?=$_SESSION['kingaku']?></p>
+        </div>
         <div id="total">
             <button class="cart_btn" onclick="location.href='buy-1.html'">会計へ進む</button>
         </div>

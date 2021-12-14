@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -73,6 +74,7 @@
 
 <!--ここからメインエリア-->
 <main>
+<form action="" method="post">
     <?php
     $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
@@ -85,13 +87,16 @@
         $row['g_name'];$row['g_price'];
     }
 
-    $sql = $pdo->query('SELECT * FROM tag WHERE tag.t_tagid=(SELECT tm_tagid FROM tagmanage WHERE tm_itemid=?');
+    $tm_itemid = 1;
+    $sql = $pdo->prepare('SELECT tag.t_tagid,tag.t_tagname,tag.t_tagclass FROM tag inner join tagmanageon tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
 
-    foreach ($sql as $row){
-        $row['tm_tagid'];$row['tm_itemid'];
+    $sql->bindValue(1,$tm_itemid,PDO::PARAM_STR);
+    $sql->execute();
+
+    foreach ($sql as $row1){
+        $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
     }
 
-    $pdo = null;
     ?>
     <div class="in">
         <!--とりあえずdiv idでそれぞれ囲っているよ-->
@@ -120,36 +125,23 @@
             <div class="main_left">
                 <!--商品名と値段をDBから持ってこれると最高-->
                 <div id="itemname">
-                    <h2><!--商品名--><input type="text" name="g_name" value=<?= $row['g_name'] ?>></h2>
+                    <h2><!--商品名--><input name="g_name" value=<?= $row['g_name'] ?>></h2>
                 </div>
                 <div id="itemprice">
-                    <h2>￥<input type="number" name="g_price" value=<?= $row['g_price'] ?>></h2>
+                    <h2>￥<input name="g_price" value=<?= $row['g_price'] ?>></h2>
                 </div>
                 <div id="itemtags">
                     <ul class="itemdetailtags">
-                        <li><a>#商品タグ1<?= $row['tm_tagid'] ?></a></li>
-                        <li><a>#商品タグ2<?= $row['tm_tagid'] ?></a></li>
+                        <li><a>#商品タグ1<?= $row1['t_tagname'] ?></a></li>
+                        <li><a>#商品タグ2<?= $row1['t_tagname'] ?></a></li>
                     </ul>
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                 <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
-                <form action="" method="post">
-                    <div class="card">
-                        <?php
-                        $g_itemid = $_GET['$g_itemid'];
-                        echo $g_itemid;
-                        /*
-                         * GETで受取ったstuff_idをもとにDBから商品情報を取得して表示する
-                         */
-                        echo '<p>ここには商品の詳細が表示される</p>';
-                        echo '<br>';
-                        /*
-                         * カートに追加する処理
-                         */
-                        echo '<input type="hidden" name="c" value="',$g_itemid,'">';
-                        echo '<input type="hidden" name="isCartInn" value="true">';
-                        echo '<button type="submit" value="カートへ">カートへ</button>';
-                        ?>
+                <input type="hidden" name="redirect">
+                <input type="hidden" name="item_id">
+                <input type="hidden" name="number">
+                <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
                     </div>
                 </form>
             </div>
@@ -158,8 +150,8 @@
                 <!--タグが最も近い商品を検索して表示-->
                 <!--SQLで検索した商品の表示-->
                 <p>関連商品</p>
-                <button type="submit"><img src="../pic/" alt="商品" /></button>
-                <button type="submit"><img src="../pic/" alt="商品" /></button>
+                <button type="submit"><img src="../pic/004.png" alt="商品" /></button>
+                <button type="submit"><img src="../pic/005.png" alt="商品" /></button>
             </div>
         </div>
     </div>
@@ -172,3 +164,14 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+<?php
+if(!empty($_POST['redirect'])) {
+
+    $sql = $pdo->prepare('INSERT INTO carton VALUE(?,?,?)');
+    $sql -> bindValue(1,$_POST['item_id'], PDO::PARAM_STR);
+    $sql -> bindValue(2,$_SESSION['customer']['id'], PDO::PARAM_STR);
+    $sql -> bindValue(3,$_POST['number'], PDO::PARAM_STR);
+    $sql->execute();
+    $pdo = null;
+}
+?>

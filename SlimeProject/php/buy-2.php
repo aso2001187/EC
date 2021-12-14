@@ -78,22 +78,27 @@
         <div id="client">
             <h1>お客様情報</h1>
             <ul>
-                <li><? echo $_POST['name'] ?></li>
-                <li><? echo $_POST['postcode'] ?></li>
-                <li><? echo $_POST['address1'] ?></li>
-                <li><? echo $_POST['address2'] ?></li>
-                <li><? echo $_POST['phone'] ?></li>
-                <li><? echo $_POST['email'] ?></li>
+                <li><?= $_POST['name'] ?></li>
+                <li><?= $_POST['postcode'] ?></li>
+                <li><?= $_POST['address1'] ?></li>
+                <li><?= $_POST['address2'] ?></li>
+                <li><?= $_POST['phone'] ?></li>
+                <li><?= $_POST['email'] ?></li>
             </ul>
-            <?
+            <?php
             $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
                 'LAA1291072',
                 'asot6');
-            $sql=$pdo->prepare('update costomer set C_name=?,C_postcode=?,C_address1=?,
-                C_address2=?,C_phone=?,C_email=? where C_id=?');
-            $sql->execute($_POST['name'],$_POST['postcode'],$_POST['address1'],$_POST['address1'],
-            $_POST['address2'],$_POST['phone'],$_POST['email']);
+            $sql=$pdo->prepare('update costomer set C_name=?,C_postcode=?,C_address1=?,C_address2=?,C_phone=?,C_email=? where C_id=?');
+            $sql->bindValue(1,$_POST['name']);
+            $sql->bindValue(2,$_POST['postcode']);
+            $sql->bindValue(3,$_POST['address1']);
+            $sql->bindValue(4,$_POST['address2']);
+            $sql->bindValue(5,$_POST['phone']);
+            $sql->bindValue(6,$_POST['email']);
+            $sql->bindValue(7,$_SESSION['customer']['id']);
+            $sql->execute();
             ?>
             <!--前のページからお客様情報を持ってくる-->
         </div>
@@ -104,19 +109,21 @@
         <div class="container1">
             <div class="container2">
                 <div class="item1">金額</div>
-                <div class="item2"><? echo $_SESSION['kingaku']?>円</div>
+                <div class="item2"><?= $_SESSION['kingaku']?>円</div>
             </div>
             <div class="container2">
                 <div class="item1">消費税</div>
-                <div class="item2"><? $tax=new $_SESSION['kingaku']*0.1; echo $tax?>円</div>
+                <div class="item2"><?php $tax=$_SESSION['kingaku']*0.1; echo $tax; ?>円</div>
             </div>
             <div class="container2 aaa">
                 <div class="item1">小計</div>
-                <div class="item2"><? echo $_SESSION['kingaku'] + $tax?>円</div>
+                <div class="item2"><?= $_SESSION['kingaku']+$tax;?>円</div>
             </div>
         </div>
         <div id="order">
+            <form method="post" action="buy-2-out.php">
             <input type="submit" class="order_btn" value="注文確定">
+            </form>
         </div>
     </div>
 </main>

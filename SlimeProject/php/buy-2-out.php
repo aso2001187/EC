@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -82,14 +82,20 @@
             'asot6');
         $time=time();
         $dae=date('Y-m-d');
-        $sql=$pdo->prepare('insert into order(o_id,o_order,o_date,o_send) values(:id,:order,:date,1)');
-        $params=array(':id'=>$_SESSION['customer']['id'],':order'=>$time,':date'=>$dae);
-        $sql->execute($params);
+        //$sql=$pdo->prepare('insert into order(o_id,o_order,o_date,o_send) values(:id,:order,:date,1)');
+        $sql=$pdo->prepare('insert into order(o_id,o_orderid,o_date,o_send) values(?,?,?,?)');
+        $sql->bindValue(1,$_SESSION['customer']['id']);
+        $sql->bindValue(2,$time);
+        $sql->bindValue(3,$dae);
+        $sql->bindValue(4,1);
+        //$params=array(':id'=>$_SESSION['customer']['id'],':order'=>$time,':date'=>$dae);
+        $sql->execute();
 
         $sql2=$pdo->prepare('insert into orderdetail(od_orderid,od_itemid,od_quantity) values(:odid,:itemid,:itemqua)');
 
         $sql3=$pdo->prepare('select * from carton where ca_id=?');
-        $sql3->execute($_SESSION['customer']['id']);
+        $sql3->bindValue(1,$_SESSION['customer']['id']);
+        $sql3->execute();
 
         $itemid=null;
         $itemqua=null;
@@ -102,8 +108,9 @@
             $meow=1;
         }
         if($meow===1){
-            $sql4=$pdo->prepare('delete from kart where ca_id=?');
-            $sql4->execute($_SESSION['customer'],['id']);
+            $sql4=$pdo->prepare('delete from carton where ca_id=?');
+            $sql4->bindValue(1,$_SESSION['customer']['id']);
+            $sql4->execute();
         }
 
         

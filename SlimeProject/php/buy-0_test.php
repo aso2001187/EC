@@ -107,7 +107,7 @@
     $_SESSION['customer']['address2']="2丁目12-3";
     $_SESSION['customer']['phone']=120371007;
     $_SESSION['customer']['email']="aso@s.asojuku.ac.jp";
-
+    $_SESSION['kingaku']=5000;
 
     ?>
     <a href="buy-1.php">

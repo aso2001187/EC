@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -85,29 +85,35 @@
         <ul>
             <li>
                 <p>お名前</p>
-                <input type="text" name="name" value="<?php $_SESSION['customer']['name']; ?>" maxlength="50" class="box" required>
+                <input type="text" name="name" value="<?php echo $_SESSION['customer']['name']; ?>" maxlength="50" class="box" required>
             </li>
             <li>
                 <p>郵便番号</p>
-                <input type="number" name="postcode" value="<?php $_SESSION['customer']['postcode']; ?>" maxlength="7" class="box" required>
+                <input type="number" name="postcode" value="<?php echo $_SESSION['customer']['postcode']; ?>" maxlength="7" class="box" required>
             </li>
             <li>
                 <p>住所１</p>
-                <input type="text" name="address1" value="<?php $_SESSION['customer']['address1']; ?>" maxlength="80" class="box" required>
+                <input type="text" name="address1" value="<?= $_SESSION['customer']['address1']; ?>" maxlength="80" class="box" required>
             </li>
             <li>
                 <p>住所２</p>
-                <input type="text" name="address2" value="<?php $_SESSION['customer']['address2']; ?>" maxlength="20" class="box" required>
+                <input type="text" name="address2" value="<?= $_SESSION['customer']['address2']; ?>" maxlength="20" class="box" required>
             </li>
             <li>
                 <p>電話番号</p>
-                <input type="number" name="phone" value="<?php $_SESSION['customer']['phone']; ?>" maxlength="12" class="box" required>
+                <input type="number" name="phone" value="<?= $_SESSION['customer']['phone']; ?>" maxlength="12" class="box" required>
             </li>
             <li>
                 <p>メールアドレス</p>
-                <input type="email" name="email" value="<?php $_SESSION['customer']['email']; ?>" maxlength="80" class="box" required>
+                <input type="email" name="email" value="<?= $_SESSION['customer']['email']; ?>" maxlength="80" class="box" required>
             </li>
         </ul>
+            <?php
+            echo $_SESSION['customer']['name'];
+            if(empty($_SESSION['customer']['id'])){
+                echo 'から';
+            }
+            ?>
         <input type="submit" value="入力情報確認" class="exbtn">
         </form>
     </div>

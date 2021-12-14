@@ -86,7 +86,7 @@
     }
 
     $tm_itemid = 1;
-    $sql = $pdo->prepare('SELECT * FROM tag inner join tagmanageon tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
+    $sql = $pdo->prepare('SELECT tag.t_tagid,tag.t_tagname,tag.t_tagclass FROM tag inner join tagmanageon tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
 
     $sql->bindValue(1,$tm_itemid,PDO::PARAM_STR);
     $sql->execute();
@@ -137,23 +137,7 @@
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                 <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
-                <form action="" method="post">
-                    <div class="card">
-                        <?php
-                        $g_itemid = $_GET['$g_itemid'];
-                        echo $g_itemid;
-                        /*
-                         * GETで受取ったstuff_idをもとにDBから商品情報を取得して表示する
-                         */
-                        echo '<p>ここには商品の詳細が表示される</p>';
-                        echo '<br>';
-                        /*
-                         * カートに追加する処理
-                         */
-                        echo '<input type="hidden" name="c" value="',$g_itemid,'">';
-                        echo '<input type="hidden" name="isCartInn" value="true">';
-                        echo '<button type="submit" value="カートへ">カートへ</button>';
-                        ?>
+                <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
                     </div>
                 </form>
             </div>
@@ -162,8 +146,8 @@
                 <!--タグが最も近い商品を検索して表示-->
                 <!--SQLで検索した商品の表示-->
                 <p>関連商品</p>
-                <button type="submit"><img src="../pic/" alt="商品" /></button>
-                <button type="submit"><img src="../pic/" alt="商品" /></button>
+                <button type="submit"><img src="../pic/004.png" alt="商品" /></button>
+                <button type="submit"><img src="../pic/005.png" alt="商品" /></button>
             </div>
         </div>
     </div>

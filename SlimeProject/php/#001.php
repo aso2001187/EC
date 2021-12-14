@@ -79,10 +79,16 @@
         'LAA1291072',
         'asot6');
 
-    $sql = $pdo->query('SELECT * FROM goods WHERE g_itemid = 1');
+    $sql = $pdo->query('SELECT g_name,g_price FROM goods WHERE g_itemid = 1');
 
     foreach ($sql as $row){
         $row['g_name'];$row['g_price'];
+    }
+
+    $sql = $pdo->query('SELECT * FROM tag WHERE tag.t_tagid=(SELECT tm_tagid FROM tagmanage WHERE tm_itemid=?');
+
+    foreach ($sql as $row){
+        $row['tm_tagid'];$row['tm_itemid'];
     }
 
     $pdo = null;
@@ -121,13 +127,31 @@
                 </div>
                 <div id="itemtags">
                     <ul class="itemdetailtags">
-                        <li><a>#商品タグ1</a></li>
-                        <li><a>#商品タグ2</a></li>
+                        <li><a>#商品タグ1<?= $row['tm_tagid'] ?></a></li>
+                        <li><a>#商品タグ2<?= $row['tm_tagid'] ?></a></li>
                     </ul>
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                 <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
-                <button type="submit" value="カートへ"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
+                <form action="" method="post">
+                    <div class="card">
+                        <?php
+                        $g_itemid = $_GET['$g_itemid'];
+                        echo $g_itemid;
+                        /*
+                         * GETで受取ったstuff_idをもとにDBから商品情報を取得して表示する
+                         */
+                        echo '<p>ここには商品の詳細が表示される</p>';
+                        echo '<br>';
+                        /*
+                         * カートに追加する処理
+                         */
+                        echo '<input type="hidden" name="c" value="',$g_itemid,'">';
+                        echo '<input type="hidden" name="isCartInn" value="true">';
+                        echo '<button type="submit" value="カートへ">カートへ</button>';
+                        ?>
+                    </div>
+                </form>
             </div>
             <div class="main_right">
                 <!--関連商品-->

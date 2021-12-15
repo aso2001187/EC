@@ -1,17 +1,4 @@
 <?php session_start();?>
-<?php
-$pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
-            dbname=LAA1291072-team;charset=utf8',
-    'LAA1291072',
-    'asot6');
-/*削除ボタンのリダイレクト(一端実装停止)*/
-if(!empty($_POST['delete'])) {
-    $sql = $pdo->prepare('DELETE FROM carton WHERE ca_itemid = ? and ca_id = ?');
-    $sql->bindValue(1, $_SESSION['itemid'], PDO::PARAM_STR);
-    $sql->bindValue(2, $_SESSION['customer']['id'], PDO::PARAM_STR);
-    $sql->execute();
-}
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -24,7 +11,7 @@ if(!empty($_POST['delete'])) {
     <!--ページ全体の設定-->
     <link rel="stylesheet" href="../css/setting.css">
     <!--メインエリアのcss-->
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/searchresult.css">
 </head>
 <body>
 <!--ここから上部ヘッダー-->
@@ -87,53 +74,41 @@ if(!empty($_POST['delete'])) {
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <div id="cart">
-        <?php
-        unset($_SESSION['kingaku']);
-        $_SESSION['kingaku']=0;
-        ?>
     <?php
-    $id = $_SESSION['customer']['id'];
-    $sql = $pdo->prepare('SELECT carton.ca_itemid,carton.ca_number,goods.g_price FROM carton LEFT JOIN goods ON carton.ca_itemid = goods.g_itemid WHERE ca_id = ?');
-    $sql->bindValue(1,$id);
-    $sql->execute();
+    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+        'LAA1291072',
+        'asot6');
+    $LIKE=$_POST['search'];
+    $sql=$pdo->prepare('SELECT g_itemid FROM goods WHERE g_name LIKE %'.'?'.'%');
+    $sql->execute([$_POST['search']]);
     foreach ($sql as $row){
-        $tanka=null;
-echo <<<EOD
-                <div id="goods"><!--DBのデータの数分増やす-->
-                    <div id="itemimg">
-                        <!--画像アップロード前-->
-EOD;
-                        $itemid = $row['ca_itemid'];
-                        echo '<img src="../pic/',$itemid,'.png">';
-                    echo '</div>';
-                    $number = $row['ca_number'];
-                    echo '<p>',$number,'</p>';
-echo <<<EOD
-                    <div id="itemdelete">
-                        <form action="" method="post">
-                            <input type="hidden" name="delete">
-                            <!--削除ボタンの実装一旦停止・作るならリダイレクトかな？<button type="submit">削除</button>-->
-                        </form>
-                    </div>
-                    <div id="itemprice">
-EOD;
-                        $tanka = $row['g_price'];
-                        $syoukei= $number*$tanka;
-                        echo '<p>単価：',$tanka,'</p>';
-                        echo '<p>小計：',$syoukei,'</p>';
-                        $_SESSION['kingaku']=$_SESSION['kingaku']+$syoukei;
-                    echo '</div>';
-                echo '</div>';
-            }
-        ?>
-        <div id="itemsum">
-            <p>値段合計<?=$_SESSION['kingaku']?></p>
+
+    }
+    ?>
+    <div class="main">
+        <div class="tags">
+            <ul>
+                <li><a href="#1">##TAG1</a></li>
+                <li><a href="#1">##TAG2</a></li>
+                <li><a href="#1">##TAG3</a></li>
+                <li><a href="#1">##TAG4</a></li>
+            </ul>
         </div>
-        <div id="total">
-            <button class="cart_btn" onclick="location.href='buy-1.php'">会計へ進む</button>
+        <div class="itemimg">
+            <div class="item1"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <div class="item2"> <button type="submit"><img src="../pic/" alt="商品" /></button></div>
+        </div>
+        <div class="itemimg">
+            <div class="item1"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <div class="item2"> <button type="submit"><img src="../pic/" alt="商品" /></button></div>
+        </div>
+        <div class="itemimg">
+            <div class="item1"><button type="submit"><img src="../pic/" alt="商品" /></button></div>
+            <div class="item2"> <button type="submit"><img src="../pic/" alt="商品" /></button></div>
         </div>
     </div>
+
 </main>
 
 <!--使ってるアイコンのスクリプト-->

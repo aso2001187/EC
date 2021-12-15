@@ -103,6 +103,7 @@
         }
         if(isset($_SESSION['customer'])){
             echo $_SESSION['customer']['name'],'さん ようこそ';
+            echo '<br><a href="cart.php">カートへ</a>';
         }else{
             echo 'ログイン失敗';
         }

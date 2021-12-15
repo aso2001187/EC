@@ -15,61 +15,9 @@
 </head>
 <body>
 <!--ここから上部ヘッダー-->
-<header>
-    <div class="header_boss">
-        <!--ヘッダーの左寄せ部分-->
-        <div class="header_left">
-            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
-        </div>
-        <!--ヘッダーの右寄せ部分-->
-        <ul class="header_right">
-            <!--検索ボックス-->
-            <li class="header_right_item">
-                <form method="post" action="#???" class="keyword"> <!--キーワード検索用form-->
-                    <div class="header_items3">
-                        <input type="text" id="search" placeholder="キーワード検索" class="keyword_box">
-                        <input type="submit" value="&#xf002" class="keyword_submit">
-                    </div>
-                </form> <!--キーワード検索用form ここまで-->
-            </li>
-            <!--ログインボタン-->
-            <li class="header_right_item">
-                <div class="header_items">
-                    <a href="login.html"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
-                        <span>Login</span></a>
-                </div>
-            </li>
-            <!--カートボタン-->
-            <li class="header_right_item">
-                <div class="header_items2">
-                    <a href="#???"><ion-icon name="cart-outline" class="header_icon2"></ion-icon>
-                        <span>Cart</span></a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</header>
-<!--上部ヘッダー終わり-->
-
-<!--左サイドバー-->
-<div id="sidebar">
-    <div class="bg"></div>
-    <div class="sidebar-button" tabindex="0">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </div>
-    <div id="sidebar-menu" tabindex="0">
-        <ul>
-            <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li> <!---->
-            <li><a href="#0">##TAG2</a></li>
-            <li><a href="#0">##TAG3</a></li>
-            <li><a href="#0">##TAG4...</a></li>
-            <li class="small"><a href="#0">Contact</a></li>
-        </ul>
-    </div>
-</div>
+<?php
+require "parts.php";
+?>
 <!--サイドバー終わり-->
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
@@ -83,7 +31,7 @@
         $time=time();
         $dae=date('Y-m-d');
         //$sql=$pdo->prepare('insert into order(o_id,o_order,o_date,o_send) values(:id,:order,:date,1)');
-        $sql=$pdo->prepare('insert into order(o_id,o_orderid,o_date,o_send) values(?,?,?,?)');
+        $sql=$pdo->prepare('insert into orders values(?,?,?,?)');
         $sql->bindValue(1,$_SESSION['customer']['id']);
         $sql->bindValue(2,$time);
         $sql->bindValue(3,$dae);
@@ -117,6 +65,8 @@
 
         ?>
         注文完了しました。
+        <?= $time ?>
+        <?= $dae ?>
         <a href="toppage.php"><p>TOPへ戻る</p></a>
     </div>
 </main>

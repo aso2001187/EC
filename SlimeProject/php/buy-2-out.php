@@ -83,7 +83,7 @@
         $time=time();
         $dae=date('Y-m-d');
         //$sql=$pdo->prepare('insert into order(o_id,o_order,o_date,o_send) values(:id,:order,:date,1)');
-        $sql=$pdo->prepare('insert into order(o_id,o_orderid,o_date,o_send) values(?,?,?,?)');
+        $sql=$pdo->prepare('insert into orders values(?,?,?,?)');
         $sql->bindValue(1,$_SESSION['customer']['id']);
         $sql->bindValue(2,$time);
         $sql->bindValue(3,$dae);
@@ -117,6 +117,8 @@
 
         ?>
         注文完了しました。
+        <?= $time ?>
+        <?= $dae ?>
         <a href="toppage.php"><p>TOPへ戻る</p></a>
     </div>
 </main>

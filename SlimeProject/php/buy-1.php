@@ -108,12 +108,6 @@
                 <input type="email" name="email" value="<?= $_SESSION['customer']['email']; ?>" maxlength="80" class="box" required>
             </li>
         </ul>
-            <?php
-            echo $_SESSION['customer']['name'];
-            if(empty($_SESSION['customer']['id'])){
-                echo 'から';
-            }
-            ?>
         <input type="submit" value="入力情報確認" class="exbtn">
         </form>
     </div>

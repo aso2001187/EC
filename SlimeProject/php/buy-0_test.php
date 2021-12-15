@@ -26,9 +26,9 @@
         <ul class="header_right">
             <!--検索ボックス-->
             <li class="header_right_item">
-                <form method="post" action="#???" class="keyword"> <!--キーワード検索用form-->
+                <form method="post" action="searchresult.php" class="keyword"> <!--キーワード検索用form-->
                     <div class="header_items3">
-                        <input type="text" id="search" placeholder="キーワード検索" class="keyword_box">
+                        <input type="text" name="search" id="search" placeholder="キーワード検索" class="keyword_box">
                         <input type="submit" value="&#xf002" class="keyword_submit">
                     </div>
                 </form> <!--キーワード検索用form ここまで-->
@@ -82,13 +82,6 @@
                     <li><a href="小分類">007</a></li>
                     <li><a href="小分類">008</a></li>
                     <li><a href="小分類">009</a></li>
-                </ul>
-            </li>
-            <li><a href="#0">##TAG4...</a>
-                <ul>
-                    <li><a href="小分類">010</a></li>
-                    <li><a href="小分類">011</a></li>
-                    <li><a href="小分類">012</a></li>
                 </ul>
             </li>
             <li class="small"><a href="#0">Contact</a></li>

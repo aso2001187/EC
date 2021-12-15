@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/sidebar_proto.css">
 <header>
     <div class="header_boss">
         <!--ヘッダーの左寄せ部分-->

@@ -74,28 +74,29 @@
 
 <!--ここからメインエリア-->
 <main>
-<form action="" method="post">
+<form action="cartin.php" method="post">
     <?php
     $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
         'LAA1291072',
         'asot6');
 
+
     $sql = $pdo->query('SELECT g_name,g_price FROM goods WHERE g_itemid = 1');
 
     foreach ($sql as $row){
         $row['g_name'];$row['g_price'];
+
+
     }
 
     $tm_itemid = 1;
-    $sql = $pdo->prepare('SELECT tag.t_tagid,tag.t_tagname,tag.t_tagclass FROM tag inner join tagmanageon tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
+    $_SESSION['item'] = $tm_itemid;
 
-    $sql->bindValue(1,$tm_itemid,PDO::PARAM_STR);
-    $sql->execute();
+    $sql2 = $pdo->prepare('SELECT tag.t_tagid as t_tagid,tag.t_tagname as t_tagname,tag.t_tagclass as t_tagclass FROM tag inner join tagmanage on tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
 
-    foreach ($sql as $row1){
-        $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
-    }
+    $sql2->bindValue(1,$tm_itemid);
+    $sql2->execute();
 
     ?>
     <div class="in">
@@ -125,21 +126,25 @@
             <div class="main_left">
                 <!--商品名と値段をDBから持ってこれると最高-->
                 <div id="itemname">
-                    <h2><!--商品名--><input name="g_name" value=<?= $row['g_name'] ?>></h2>
+                    <h2><!--商品名--><?= $row['g_name'] ?></h2>
                 </div>
                 <div id="itemprice">
-                    <h2>￥<input name="g_price" value=<?= $row['g_price'] ?>></h2>
+                    <h2>￥<?= $row['g_price'] ?></h2>
                 </div>
                 <div id="itemtags">
                     <ul class="itemdetailtags">
-                        <li><a>#商品タグ1<?= $row1['t_tagname'] ?></a></li>
-                        <li><a>#商品タグ2<?= $row1['t_tagname'] ?></a></li>
+                        <?php
+                        foreach ($sql2 as $row1){
+                            $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
+                            echo '<li><a>', $row1['t_tagname'], '</a></li>';
+                        };
+                        ?>
                     </ul>
                 </div>
                 <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                 <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
                 <input type="hidden" name="redirect">
-                <input type="hidden" name="item_id">
+                <input type="hidden" name="item_id" value="1">
                 <input type="hidden" name="number">
                 <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
                     </div>
@@ -165,7 +170,7 @@
 </body>
 </html>
 <?php
-if(!empty($_POST['redirect'])) {
+/*if(!empty($_POST['redirect'])) {
 
     $sql = $pdo->prepare('INSERT INTO carton VALUE(?,?,?)');
     $sql -> bindValue(1,$_POST['item_id'], PDO::PARAM_STR);
@@ -174,4 +179,4 @@ if(!empty($_POST['redirect'])) {
     $sql->execute();
     $pdo = null;
 }
-?>
+?>**/

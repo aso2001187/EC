@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="byu0">
+    <list default="true" id="ab8c35c3-1592-4a0a-b9fc-a12f2eb680ff" name="デフォルト変更リスト" comment="登録画面終わり">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/php/buy-0_test.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/buy-0_test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/php/buy-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/buy-1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/php/buy-2-out.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/buy-2-out.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlimeProject/php/buy-2.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/buy-2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlimeProject/php/toppage.php" beforeDir="false" afterPath="$PROJECT_DIR$/SlimeProject/php/toppage.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/SlimeProject/pic" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -61,8 +62,7 @@
       <workItem from="1636681995554" duration="1006000" />
       <workItem from="1637288448404" duration="611000" />
       <workItem from="1637889231461" duration="6324000" />
-      <workItem from="1639096963280" duration="9946000" />
-      <workItem from="1639441697824" duration="10859000" />
+      <workItem from="1639448357037" duration="8946000" />
     </task>
     <task id="LOCAL-00001" summary="test kai">
       <created>1636507709354</created>

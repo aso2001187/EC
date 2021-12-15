@@ -74,38 +74,38 @@
 
 <!--ここからメインエリア-->
 <main>
-<form action="cartin.php" method="post">
-    <?php
-    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+    <form action="cartin.php" method="post">
+        <?php
+        $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
-        'LAA1291072',
-        'asot6');
+            'LAA1291072',
+            'asot6');
 
 
-    $tm_itemid = 1;
+        $tm_itemid = 5;
 
-    $sql = $pdo->prepare('SELECT g_name,g_price FROM goods WHERE g_itemid = ?');
-    $sql->execute([$tm_itemid]);
-    foreach ($sql as $row){
-        $row['g_name'];$row['g_price'];
+        $sql = $pdo->prepare('SELECT g_name,g_price FROM goods WHERE g_itemid = ?');
+        $sql->execute([$tm_itemid]);
+        foreach ($sql as $row){
+            $row['g_name'];$row['g_price'];
 
 
-    }
+        }
 
-    $sql2 = $pdo->prepare('SELECT tag.t_tagid as t_tagid,tag.t_tagname as t_tagname,tag.t_tagclass as t_tagclass FROM tag inner join tagmanage on tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
+        $sql2 = $pdo->prepare('SELECT tag.t_tagid as t_tagid,tag.t_tagname as t_tagname,tag.t_tagclass as t_tagclass FROM tag inner join tagmanage on tagmanage.tm_tagid = tag.t_tagid WHERE tagmanage.tm_itemid=?');
 
-    $sql2->bindValue(1,$tm_itemid);
-    $sql2->execute();
+        $sql2->bindValue(1,$tm_itemid);
+        $sql2->execute();
 
-    ?>
-    <div class="in">
-        <!--とりあえずdiv idでそれぞれ囲っているよ-->
-        <!--商品画像 cssで回り込み処理-->
-        <div class="itemimg">
-            <!--画像アップロード前-->
-            <img class="png" src="../pic/<?= $tm_itemid?>.png">
-            <!--商品詳細 改行はbrで-->
-            <div id="itemedtail">
+        ?>
+        <div class="in">
+            <!--とりあえずdiv idでそれぞれ囲っているよ-->
+            <!--商品画像 cssで回り込み処理-->
+            <div class="itemimg">
+                <!--画像アップロード前-->
+                <img class="png" src="../pic/<?= $tm_itemid?>.png">
+                <!--商品詳細 改行はbrで-->
+                <div id="itemedtail">
             <span>
                 ここに商品説明を記述します。<br>
                 改行はbrタグを使用して改行してください<br>
@@ -121,45 +121,45 @@
                 <br>
                 商品説明下ギリはここらへん
             </span>
+                </div>
             </div>
-        </div>
-        <div class="mains">
-            <div class="main_left">
-                <!--商品名と値段をDBから持ってこれると最高-->
-                <div id="itemname">
-                    <h2><!--商品名--><?= $row['g_name'] ?></h2>
-                </div>
-                <div id="itemprice">
-                    <h2>￥<?= $row['g_price'] ?></h2>
-                </div>
-                <div id="itemtags">
-                    <ul class="itemdetailtags">
-                        <?php
-                        foreach ($sql2 as $row1){
-                            $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
-                            echo '<li><a>', $row1['t_tagname'], '</a></li>';
-                        };
-                        ?>
-                    </ul>
-                </div>
-                <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
-                <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
-                <input type="hidden" name="redirect">
-                <input type="hidden" name="item_id" value="<?=$tm_itemid?>">
-                <input type="hidden" name="number">
-                <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
+            <div class="mains">
+                <div class="main_left">
+                    <!--商品名と値段をDBから持ってこれると最高-->
+                    <div id="itemname">
+                        <h2><!--商品名--><?= $row['g_name'] ?></h2>
                     </div>
-                </form>
-            </div>
-            <div class="main_right">
-                <!--関連商品-->
-                <!--タグが最も近い商品を検索して表示-->
-                <!--SQLで検索した商品の表示-->
-                <p>関連商品</p>
-                <button type="submit"><img src="../pic/004.png" alt="商品" /></button>
-                <button type="submit"><img src="../pic/005.png" alt="商品" /></button>
-            </div>
-        </div>
+                    <div id="itemprice">
+                        <h2>￥<?= $row['g_price'] ?></h2>
+                    </div>
+                    <div id="itemtags">
+                        <ul class="itemdetailtags">
+                            <?php
+                            foreach ($sql2 as $row1){
+                                $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
+                                echo '<li><a>', $row1['t_tagname'], '</a></li>';
+                            };
+                            ?>
+                        </ul>
+                    </div>
+                    <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
+                    <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
+                    <input type="hidden" name="redirect">
+                    <input type="hidden" name="item_id" value="<?= $tm_itemid?>">
+                    <input type="hidden" name="number">
+                    <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
+                </div>
+    </form>
+    </div>
+    <div class="main_right">
+        <!--関連商品-->
+        <!--タグが最も近い商品を検索して表示-->
+        <!--SQLで検索した商品の表示-->
+        <p>関連商品</p>
+        <a href="4.php"><img src="../pic/4.png" alt="商品" /></a>
+        <a href="5.php"><img src="../pic/5.png" alt="商品" /></a>
+    </div>
+    </div>
     </div>
 </main>
 

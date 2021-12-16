@@ -82,7 +82,7 @@
             'asot6');
 
 
-        $tm_itemid = 2;
+        $tm_itemid = ;
 
         $sql = $pdo->prepare('SELECT g_name,g_price FROM goods WHERE g_itemid = ?');
         $sql->execute([$tm_itemid]);
@@ -137,7 +137,7 @@
                             <?php
                             foreach ($sql2 as $row1){
                                 $row1['t_tagid'];$row1['t_tagname'];$row1['t_tagclass'];
-                                echo '<li><a>', $row1['t_tagname'], '</a></li>';
+                                echo '<li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=',$row1['t_tagid'],'">',$row1['t_tagname'],'</a></li>';
                             };
                             ?>
                         </ul>
@@ -145,7 +145,7 @@
                     <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                     <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
                     <input type="hidden" name="redirect">
-                    <input type="hidden" name="item_id" value="<?= $tm_itemid?>">
+                    <input type="hidden" name="item_id" value="<?=$tm_itemid?>">
                     <input type="hidden" name="number">
                     <button type="submit"><!--ここにSQLとカート①へのリンク書く-->カートへ</button>
                 </div>
@@ -156,8 +156,8 @@
         <!--タグが最も近い商品を検索して表示-->
         <!--SQLで検索した商品の表示-->
         <p>関連商品</p>
-        <button type="submit"><img src="../pic/004.png" alt="商品" /></button>
-        <button type="submit"><img src="../pic/005.png" alt="商品" /></button>
+        <a href="4.php"><img src="../pic/4.png" alt="関連商品" /></a>
+        <a href="5.php"><img src="../pic/5.png" alt="関連商品" /></a>
     </div>
     </div>
     </div>

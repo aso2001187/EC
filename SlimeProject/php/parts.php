@@ -46,25 +46,25 @@
     <div id="sidebar-menu" tabindex="0">
         <ul>
             <li><a class="top" href="toppage.php">TOP</a></li>
-            <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=gender">性別</a>
+            <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=999999">性別</a>
                 <ul>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=men">男性</a></li>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=women">女性</a></li>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=other1">その他</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=1">男性</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=2">女性</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=3">その他</a></li>
                 </ul>
             </li>
-            <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=atmoth">雰囲気</a>
+            <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=999998">雰囲気</a>
                 <ul>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=cool">かっこいい</a></li>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=cute">かわいい</a></li>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=other2">その他</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=4">かっこいい</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=5">かわいい</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=6">その他</a></li>
                 </ul>
             </li>
-            <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=genre">ジャンル</a>
+            <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=999997">ジャンル</a>
                 <ul>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=tops">トップス</a></li>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=bottoms">ボトム</a></li>
-                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=other3">その他</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=7">トップス</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=8">ボトム</a></li>
+                    <li><a href="http://aso2001187.babymilk.jp/Slime/SlimeProject/php/searchresult.php?param=9">その他</a></li>
                 </ul>
             </li>
             <li class="small"><a href="#0">Contact</a></li>

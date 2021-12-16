@@ -1,5 +1,8 @@
-<?php session_start();?>
+<?php  if (!isset($_SESSION)){session_start();};?>
 <?php
+if(!isset($_SESSION['customer'])) {/*ログインされていないならログインに遷移*/
+    header('Location:cart-login.php');
+}
 $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
     'LAA1291072',
@@ -83,6 +86,9 @@ EOD;
         </div>
     </div>
 </main>
+<?php
+unset($_SESSION['itemid']);
+?>
 
 <!--使ってるアイコンのスクリプト-->
 <script src="../js/main.js"></script>

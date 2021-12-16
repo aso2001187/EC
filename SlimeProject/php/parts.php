@@ -19,7 +19,7 @@
             <!--ログインボタン-->
             <li class="header_right_item">
                 <div class="header_items">
-                    <a href="login.html"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
+                    <a href="login.php"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
                         <span>Login</span></a>
                 </div>
             </li>

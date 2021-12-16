@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,86 +15,13 @@
 </head>
 <body>
 <!--ここから上部ヘッダー-->
-<header>
-    <div class="header_boss">
-        <!--ヘッダーの左寄せ部分-->
-        <div class="header_left">
-            <a href="ここはtopページリンク"><img src="../pic/logo.png"></a>
-        </div>
-        <!--ヘッダーの右寄せ部分-->
-        <ul class="header_right">
-            <!--検索ボックス-->
-            <li class="header_right_item">
-                <form method="post" action="#???" class="keyword"> <!--キーワード検索用form-->
-                    <div class="header_items3">
-                        <input type="text" id="search" placeholder="キーワード検索" class="keyword_box">
-                        <input type="submit" value="&#xf002" class="keyword_submit">
-                    </div>
-                </form> <!--キーワード検索用form ここまで-->
-            </li>
-            <!--ログインボタン-->
-            <li class="header_right_item">
-                <div class="header_items">
-                    <a href="login.html"><ion-icon name="person-outline" class="header_icon1"></ion-icon>
-                        <span>Login</span></a>
-                </div>
-            </li>
-            <!--カートボタン-->
-            <li class="header_right_item">
-                <div class="header_items2">
-                    <a href="#???"><ion-icon name="cart-outline" class="header_icon2"></ion-icon>
-                        <span>Cart</span></a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</header>
-<!--上部ヘッダー終わり-->
-
-<!--左サイドバー-->
-<div id="sidebar">
-    <div class="bg"></div>
-    <div class="sidebar-button" tabindex="0">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </div>
-    <div id="sidebar-menu" tabindex="0">
-        <ul>
-            <li><a href="#0">TOP</a></li>
-            <li><a href="#0">##TAG1</a></li> <!---->
-            <li><a href="#0">##TAG2</a></li>
-            <li><a href="#0">##TAG3</a></li>
-            <li><a href="#0">##TAG4...</a></li>
-            <li class="small"><a href="#0">Contact</a></li>
-        </ul>
-    </div>
-</div>
+<?php
+require 'parts.php';
+?>
 <!--サイドバー終わり-->
 
 <!--ここからメインエリア--> <!--ここからした(mainの中)にコードお願いします！！！-->
 <main>
-    <?php
-    $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
-            dbname=LAA1291072-team;charset=utf8',
-        'LAA1291072',
-        'asot6');
-
-    $sql = $pdo->query('SELECT * FROM costomer WHERE C_id = 1');
-
-    foreach ($sql as $row){
-        $row['C_name'];$row['C_postcode'];$row['C_address1'];$row['C_address2'];$row['C_phone'];$row['C_email'];
-    }
-    
-    /*$C_name = $_POST['C_name'];
-    $C_postcode = $_POST['C_postcode'];
-    $C_address1 = $_POST['C_address1'];
-    $C_address2 = $_POST['C_address2'];
-    $C_phone = $_POST['C_phone'];
-    $C_email = $_POST['C_email'];*/
-
-    $pdo = null;
-    ?>
     <div class="main_area">
         <form action="prof-output.php" method="post">
             <h1>お客様情報 <button type="submit">更新</button></h1>
@@ -107,30 +35,29 @@
             <ul>
                 <li>
                     <p>お名前</p>
-                    <input type="text" name="C_name" value=<?= $row['C_name'] ?> maxlength="50" class="box" required>
+                    <input type="text" name="name" value="<?php echo $_SESSION['customer']['name']; ?>" maxlength="50" class="box" required>
                 </li>
                 <li>
                     <p>郵便番号</p>
-                    <input type="number" name="C_postcode" value=<?= $row['C_postcode'] ?> maxlength="7" class="box" required>
+                    <input type="number" name="postcode" value="<?php echo $_SESSION['customer']['postcode']; ?>" maxlength="7" class="box" required>
                 </li>
                 <li>
                     <p>住所１</p>
-                    <input type="text" name="C_address1" value=<?= $row['C_address1'] ?> maxlength="80" class="box" required>
+                    <input type="text" name="address1" value="<?= $_SESSION['customer']['address1']; ?>" maxlength="80" class="box" required>
                 </li>
                 <li>
-                    <p>住所２(無い場合は「なし」)</p>
-                    <input type="text" name="C_address2" value=<?= $row['C_address2'] ?> maxlength="20" class="box" required>
+                    <p>住所２</p>
+                    <input type="text" name="address2" value="<?= $_SESSION['customer']['address2']; ?>" maxlength="20" class="box" required>
                 </li>
                 <li>
                     <p>電話番号</p>
-                    <input type="number" name="C_phone" value=<?= $row['C_phone'] ?> maxlength="12" class="box" required>
+                    <input type="number" name="phone" value="<?= $_SESSION['customer']['phone']; ?>" maxlength="12" class="box" required>
                 </li>
                 <li>
                     <p>メールアドレス</p>
-                    <input type="email" name="C_email" value=<?= $row['C_email'] ?> maxlength="80" class="box" required>
+                    <input type="email" name="email" value="<?= $_SESSION['customer']['email']; ?>" maxlength="80" class="box" required>
                 </li>
             </ul>
-            <input type="hidden" name="C_id" value="1"<!--C_idの変数を入力-->>
         </form>
     </div>
 </main>

@@ -17,7 +17,7 @@
 <body>
 <!--ここから上部ヘッダー-->
 <?php
-    require 'parts.php'
+    require 'parts.php';
 ?>
 <!--サイドバー終わり-->
 

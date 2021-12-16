@@ -77,33 +77,33 @@ require 'parts.php';
         </div>
         <?php
         /*最大で6件商品表示で終わり*/
-        echo '<div class="itemimg>';
+        echo '<div class="itemimg">';
         if (isset($itemidArray[0])){
             /*<?php $item1 = rand(1,$item)?><a href="<?=$item1 ?>.php"><?PHP echo '<img src="../pic/',$item1,'.png" alt="商品">';?></a>*/
-            echo '<div class="item1"><a href="',$itemidArray[0],'.php"><img src="../pic/',$itemidArray[0],'.png" alt="商品"></a>';
+            echo '<div class="item1"><a href="',$itemidArray[0],'.php"><img src="../pic/',$itemidArray[0],'.png" alt="商品"></a></div>';
         }else{
             echo '<p>該当する商品はありません</p>';
         }
         if (isset($itemidArray[1])){
-            echo '<div class="item2"><a href="',$itemidArray[1],'.php"><img src="../pic/',$itemidArray[1],'.png" alt="商品"></a>';
+            echo '<div class="item2"><a href="',$itemidArray[1],'.php"><img src="../pic/',$itemidArray[1],'.png" alt="商品"></a></div>';
             /*検索した条件に合う消費がなくなったら商品表示おわり 二個ずつひょうじ*/
         }
         echo '</div>';
-        echo '<div class="itemimg>';
+        echo '<div class="itemimg">';
         if (isset($itemidArray[2])){
-            echo '<div class="item1"><a href="',$itemidArray[2],'.php"><img src="../pic/',$itemidArray[2],'.png" alt="商品"></a>';
+            echo '<div class="item1"><a href="',$itemidArray[2],'.php"><img src="../pic/',$itemidArray[2],'.png" alt="商品"></a></div>';
         }
         if (isset($itemidArray[3])){
-            echo '<div class="item2"><a href="',$itemidArray[3],'.php"><img src="../pic/',$itemidArray[3],'.png" alt="商品"></a>';
+            echo '<div class="item2"><a href="',$itemidArray[3],'.php"><img src="../pic/',$itemidArray[3],'.png" alt="商品"></a></div>';
 
         }
         echo '</div>';
-        echo '<div class="itemimg>';
+        echo '<div class="itemimg">';
         if (isset($itemidArray[4])){
-            echo '<div class="item1"><a href="',$itemidArray[4],'.php"><img src="../pic/',$itemidArray[4],'.png" alt="商品"></a>';
+            echo '<div class="item1"><a href="',$itemidArray[4],'.php"><img src="../pic/',$itemidArray[4],'.png" alt="商品"></a></div>';
         }
         if (isset($itemidArray[5])) {
-            echo '<div class="item2"><a href="', $itemidArray[5], '.php"><img src="../pic/', $itemidArray[5], '.png" alt="商品"></a>';
+            echo '<div class="item2"><a href="', $itemidArray[5], '.php"><img src="../pic/', $itemidArray[5], '.png" alt="商品"></a></div>';
         }
         echo '</div>';
         ?>

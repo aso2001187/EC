@@ -4,7 +4,7 @@ $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
             dbname=LAA1291072-team;charset=utf8',
     'LAA1291072',
     'asot6');
-/*削除ボタンのリダイレクト*/
+/*削除ボタンのリダイレクト(一端実装停止)*/
 if(!empty($_POST['delete'])) {
     $sql = $pdo->prepare('DELETE FROM carton WHERE ca_itemid = ? and ca_id = ?');
     $sql->bindValue(1, $_SESSION['itemid'], PDO::PARAM_STR);
@@ -131,7 +131,7 @@ EOD;
             <p>値段合計<?=$_SESSION['kingaku']?></p>
         </div>
         <div id="total">
-            <button class="cart_btn" onclick="location.href='buy-1.html'">会計へ進む</button>
+            <button class="cart_btn" onclick="location.href='buy-1.php'">会計へ進む</button>
         </div>
     </div>
 </main>

@@ -41,6 +41,8 @@
     background: blue;
     flex-grow: 1;
     height: 200px;
+    width: 200px;
+    float: right;
 
 }
 .item2{
@@ -49,4 +51,5 @@
     background: blue;
     flex-grow: 1;
     height: 200px;
+    width: 200px;
 }

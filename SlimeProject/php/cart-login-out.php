@@ -1,5 +1,5 @@
-<?php session_start(); ?>
-<?php unset($_SESSION['customer']);?>
+<?php session_start();?>
+<?php unset($_SESSION['customer']) ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -75,22 +75,39 @@
 
 <!--ここからメインエリア-->
 <main>
+
     <div class="main_area">
         <h1>ログイン</h1>
-        <form method="post" action="login-out.php" class="login_cls"> <!--ログイン用form-->
-            <ul>
-                <li><p>メールアドレス</p>
-                    <input type="email" id="email" name="email" placeholder="your@mail.address" required>
-                </li>
-                <li><p>パスワード</p>
-                    <input type="password" id="password" name="password" placeholder="your password" required>
-                </li>
-            </ul>
-            <div class="under">
-                <a href="signup.html" class="sign_up">会員登録はこちら</a>
-                <input type="submit" value="ログイン" class="login_btn">
-            </div>
-        </form>                                                 <!--ログインフォームここまで-->
+        <?php
+        $mail=$_POST['email'];
+        $pw=$_POST['password'];
+        if (empty($_POST["email"])) {
+            echo'attention';
+        }
+        $pdo=new PDO('mysql:host=mysql152.phy.lolipop.lan;
+            dbname=LAA1291072-team;charset=utf8',
+            'LAA1291072',
+            'asot6');
+        $sql=$pdo->prepare('select * from customer where customer.C_email = ? and customer.C_id and (select password.p_id from password where password.p_pass = ?)');
+        $sql->execute([$mail,$pw]);
+        foreach ($sql as $row){
+            $_SESSION['customer'] = [
+                'id' => $row['C_id'],
+                'name' => $row['C_name'],
+                'postcode' => $row['C_postcode'],
+                'address1' => $row['C_address1'],
+                'address2' => $row['C_address2'],
+                'phone' => $row['C_phone'],
+                'email' => $row['C_email']
+            ];
+        }
+        if(isset($_SESSION['customer'])){
+            echo $_SESSION['customer']['name'],'さん ようこそ';
+            echo '<br><a href="cart.php">カートへ</a>';
+        }else{
+            echo 'ログイン失敗';
+        }
+        ?>                                          <!--ログインフォームここまで-->
     </div>
 </main>
 

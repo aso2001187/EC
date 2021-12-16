@@ -1,4 +1,5 @@
 <?php session_start();?>
+<?php unset($_SESSION['customer']) ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

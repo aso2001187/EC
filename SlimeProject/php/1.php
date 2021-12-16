@@ -89,10 +89,7 @@
                     </div>
                     <!--カートへボタンは値段の真下固定が楽ならそれがいいかも-->
                     <!--ボタン押されたときにSQL動いてDBに追加とかできる？-->
-                    <!--<input type="hidden" name="redirect">
-                    <input type="hidden" name="item_id" value="<? /*$_SESSION['item_id']*/?>">
-                    <input type="hidden" name="number">-->
-                    <a href="cartin.php"><!--ここにSQLとカート①へのリンク書く-->カートに入れてトップページに戻る</a>
+                    <div class="cartbutton"><a href="cartin.php"><!--ここにSQLとカート①へのリンク書く-->カートに入れて<br>トップページに戻る</a></div>
                 </div>
                 <div class="main_right">
                     <!--関連商品-->
